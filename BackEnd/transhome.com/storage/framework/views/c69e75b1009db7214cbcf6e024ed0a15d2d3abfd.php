@@ -1,28 +1,27 @@
-@extends('admin.layouts.app')
-@section('title','Partner')
-@section('css')
-  <link rel="stylesheet" type="text/css" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
+<?php $__env->startSection('title','Partner'); ?>
+<?php $__env->startSection('css'); ?>
+  <link rel="stylesheet" type="text/css" href="<?php echo e(asset('bootstrap/css/bootstrap.min.css')); ?>">
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"/>
-    <link rel="stylesheet" href="{{asset('frontend-admin/libs/datepicker/jquery-ui.theme.css')}}"/>
-    <link rel="stylesheet" href="{{asset('frontend-admin/libs/datepicker/jquery-ui.min.css')}}"/>
+    <link rel="stylesheet" href="<?php echo e(asset('frontend-admin/libs/datepicker/jquery-ui.theme.css')); ?>"/>
+    <link rel="stylesheet" href="<?php echo e(asset('frontend-admin/libs/datepicker/jquery-ui.min.css')); ?>"/>
     <style>
         a {
             text-decoration: none !important;
         }
     </style>
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 	<div class="partner-list content-wrap content-wrap2" id="partner-list">
         <div class="partner-list__top">
           <div class="tk-top tk-top-wrap">
             <div class="tk-top__top">
               <div class="tk-top__top--left fleft col-50">
-                <h2 class="tk-top__title">Partner</h2><a class="add-new" href="{{ route('admin.partner.create') }}">Add new</a>
+                <h2 class="tk-top__title">Partner</h2><a class="add-new" href="<?php echo e(route('admin.partner.create')); ?>">Add new</a>
               </div>
               <div class="tk-top__top--right fleft col-50">
                 <div class="text-right"><span class="dashboard">Dashboard</span></div>
@@ -33,8 +32,8 @@
               <div class="tk-top__content--row">
                 <div class="tk-top__links">
                   <ul class="list-inline">
-                    <li><a href="{{route('admin.partner.index')}}"><span class="link-text">View </span><span class="link-number">({{($view)}})</span></a></li>
-                    <li><a href="{{route('admin.partner.recycle')}}"><span class="link-text">Recycle Bin </span><span class="link-number">({{($recycle)}})</span></a></li>
+                    <li><a href="<?php echo e(route('admin.partner.index')); ?>"><span class="link-text">View </span><span class="link-number">(<?php echo e(($view)); ?>)</span></a></li>
+                    <li><a href="<?php echo e(route('admin.partner.recycle')); ?>"><span class="link-text">Recycle Bin </span><span class="link-number">(<?php echo e(($recycle)); ?>)</span></a></li>
                   </ul>
                 </div>
               </div>
@@ -75,18 +74,20 @@
               </div>
             </div>
           </div>
-          @if(session()->has('success'))
+          <?php if(session()->has('success')): ?>
           <br/>
           <div class="alert alert-success text-center">
-              {{ session('success') }}
+              <?php echo e(session('success')); ?>
+
           </div>
-              {{session()->forget('success')}}
-          @endif
+              <?php echo e(session()->forget('success')); ?>
+
+          <?php endif; ?>
           <!--.tk-top-wrap-->
         </div>
         <div class="partner-list__main">
           <div class="fright total">
-            <p>Total : <span>{{$view}} entries</span></p>
+            <p>Total : <span><?php echo e($view); ?> entries</span></p>
           </div>
           <div class="table--base partner-list__table">
             <table>
@@ -102,72 +103,73 @@
                 <th>Note</th>
                 <th>Options</th>
               </tr>
-              @if(isset($partners))
-              @foreach($partners as $key => $partner)
+              <?php if(isset($partners)): ?>
+              <?php $__currentLoopData = $partners; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $partner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
                   <td>
-                    <p>{{(($partners->currentPage()-1)* $partners->perPage()) + ($key+1)}}</p>
+                    <p><?php echo e((($partners->currentPage()-1)* $partners->perPage()) + ($key+1)); ?></p>
                   </td>
                   <td>
-                    <p class="name">{{$partner->fullname}}</p>
+                    <p class="name"><?php echo e($partner->fullname); ?></p>
                   </td>
                   <td>
-                    <p class="email">{{$partner->email}}</p>
+                    <p class="email"><?php echo e($partner->email); ?></p>
                   </td>
                   <td>
-                    <p>{{$partner->phone}}</p>
+                    <p><?php echo e($partner->phone); ?></p>
                   </td>
                   <td>
-                    @if(isset($partner->address))
-                    <p class="address">{{$partner->address}}</p>
-                    @else
+                    <?php if(isset($partner->address)): ?>
+                    <p class="address"><?php echo e($partner->address); ?></p>
+                    <?php else: ?>
                     <p> - <p>
-                    @endif
+                    <?php endif; ?>
                   </td>
                   <td>
-                    <p>{{$partner->created_at}}</p>
+                    <p><?php echo e($partner->created_at); ?></p>
                   </td>
                   <td>
-                    @if(isset($partner->partner_type))
-                    <p class="partner">{{$partner->partner_type}}</p>
-                    @else
+                    <?php if(isset($partner->partner_type)): ?>
+                    <p class="partner"><?php echo e($partner->partner_type); ?></p>
+                    <?php else: ?>
                     <p> - <p>
-                    @endif
+                    <?php endif; ?>
                   </td>
                   <td>
-                    @if(isset($partner->status))
-                    <p class="status">{{$partner->status}}</p>
-                    @else
+                    <?php if(isset($partner->status)): ?>
+                    <p class="status"><?php echo e($partner->status); ?></p>
+                    <?php else: ?>
                     <p> - <p>
-                    @endif
+                    <?php endif; ?>
                   </td>
                   <td>
-                    <div class="table-icon"><i class="far fa-sticky-note note_popup" data-toggle="modal" data-target="#exampleNote" id-customer="{{$partner->id}}"></i>
+                    <div class="table-icon"><i class="far fa-sticky-note note_popup" data-toggle="modal" data-target="#exampleNote" id-customer="<?php echo e($partner->id); ?>"></i>
                                 </div>
                   </td>
                   <td>
                   <div class="table-icon">
-                      <a href="{{ route('admin.partner.show', ['id' => $partner->id]) }}"><i class="far fa-eye"></i></a>
+                      <a href="<?php echo e(route('admin.partner.show', ['id' => $partner->id])); ?>"><i class="far fa-eye"></i></a>
                       <a class="recycle" href="#"
-                         idrecycle="{{ route('admin.partner.delete.recycle', ['id' => $partner->id]) }}"
+                         idrecycle="<?php echo e(route('admin.partner.delete.recycle', ['id' => $partner->id])); ?>"
                          data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt"></i></a>
                     </div>
                   </td>
                 </tr>
-              @endforeach
-              @endif
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+              <?php endif; ?>
             </table>
           </div>
           <div class="danhsachtk__bottom table-bot">
             <div class="fleft col-50">
                 <p class="text"><span>Showing </span><span
-                            class="from-row">{{(($partners->currentPage() - 1 ) * $partners->perPage())+1}} </span><span>to </span><span
-                            class="to-row">{{(($partners->currentPage() - 1 ) * $partners->perPage())+sizeof($partners)}} </span><span>of </span><span
-                            class="title-row">{{$partners->total()}} </span><span>entries</span></p>
+                            class="from-row"><?php echo e((($partners->currentPage() - 1 ) * $partners->perPage())+1); ?> </span><span>to </span><span
+                            class="to-row"><?php echo e((($partners->currentPage() - 1 ) * $partners->perPage())+sizeof($partners)); ?> </span><span>of </span><span
+                            class="title-row"><?php echo e($partners->total()); ?> </span><span>entries</span></p>
             </div>
             <div class="fleft col-30" style="float: right;">
                 <div class="paging text-right">
-                    {{ $partners->links('vendor.pagination.bootstrap-4', ['paginator' => $partners]) }}
+                    <?php echo e($partners->links('vendor.pagination.bootstrap-4', ['paginator' => $partners])); ?>
+
                 </div>
             </div>
             <div class="clear-fix"></div>
@@ -230,9 +232,9 @@
             </div>
         </div>
     </div>
-@endsection
-@section('script')
-    <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
+    <script src="<?php echo e(asset('bootstrap/js/bootstrap.min.js')); ?>"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $.ajaxSetup({
@@ -249,7 +251,7 @@
                 // alert('1111');
                 var data = $(this).attr('id-customer');
                 $.ajax({
-                    url: '{{route('admin.partner.getnotepartner')}}',
+                    url: '<?php echo e(route('admin.partner.getnotepartner')); ?>',
                     type: 'GET',
                     dataType: 'json',
                     data: {id : data },
@@ -277,4 +279,5 @@
             });
         });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

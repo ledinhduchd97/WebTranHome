@@ -218,7 +218,7 @@
                                         </div>
                                         <div class="task_todo__content table--base">
                                             <div class="fright total">
-                                                <p>Total : <span>{{ $tasks->count() }} mục</span></p>
+                                                <p>Total : <span>{{ $tasks->count() }} entries</span></p>
                                             </div>
                                             <table>
                                                 <tr>

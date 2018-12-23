@@ -1,14 +1,13 @@
-@extends('admin.layouts.app')
-@section('title','Edit')
-@section('css')
+<?php $__env->startSection('title','Edit'); ?>
+<?php $__env->startSection('css'); ?>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"/>
-    <link rel="stylesheet" href="{{asset('frontend-admin/libs/datepicker/jquery-ui.theme.css')}}"/>
-    <link rel="stylesheet" href="{{asset('frontend-admin/libs/datepicker/jquery-ui.min.css')}}"/>
-@endsection
-@section('content')
+    <link rel="stylesheet" href="<?php echo e(asset('frontend-admin/libs/datepicker/jquery-ui.theme.css')); ?>"/>
+    <link rel="stylesheet" href="<?php echo e(asset('frontend-admin/libs/datepicker/jquery-ui.min.css')); ?>"/>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
     <div class="customer_edit content-wrap content-wrap2" id="customer_edit">
         <div class="add-customer add-customer-wrap">
             <div class="add-customer__top">
@@ -20,72 +19,75 @@
                     <div class="add-customer--padding">
                         <div class="add-customer--left__content">
 
-                            <form id="house_infor" action="{{ route('admin.partnerTasks.update', ['id' => $task->id]) }}" method="POST">
-                                {{ csrf_field() }}
-                                {{ method_field('PUT') }}
+                            <form id="house_infor" action="<?php echo e(route('admin.partnerTasks.update', ['id' => $task->id])); ?>" method="POST">
+                                <?php echo e(csrf_field()); ?>
+
+                                <?php echo e(method_field('PUT')); ?>
+
                                 <div class="add-customer--left__title">
                                     <h3>Edit Task</h3>
                                 </div>
                                 <div class="message-adduser" style="text-align: center;">
                                     <p class="text-success">
-                                        {{--{{ dd(session()->all()) }}--}}
-                                        {{ session()->has('success') ? session('success') : "" }}
+                                        
+                                        <?php echo e(session()->has('success') ? session('success') : ""); ?>
+
                                     </p>
                                 </div>
                                 <div class="add-customer--left__item">
                                     <div class="text"><span>Title task:</span></div>
                                     <div class="content">
-                                        <input class="border--base padding--base" type="text" name="title" value="{{ $task->title }}" required="required" />
-                                        @if($errors->has('title'))
-                                            <p class="text-danger">{{ $errors->first('title') }}</p>
-                                        @endif
+                                        <input class="border--base padding--base" type="text" name="title" value="<?php echo e($task->title); ?>" required="required" />
+                                        <?php if($errors->has('title')): ?>
+                                            <p class="text-danger"><?php echo e($errors->first('title')); ?></p>
+                                        <?php endif; ?>
                                     </div>
                                     <div class="clear-fix"></div>
                                 </div>
                                 <div class="add-customer--left__item">
                                     <div class="text"><span>Age :</span></div>
                                     <div class="content">
-                                        <input class="border--base padding--base" type="text" name="age" value="{{ $task->age }}" required="required" patter="^[0-9]*$"/>
-                                        @if($errors->has('age'))
-                                            <p class="text-danger">{{ $errors->first('age') }}</p>
-                                        @endif
+                                        <input class="border--base padding--base" type="text" name="age" value="<?php echo e($task->age); ?>" required="required" patter="^[0-9]*$"/>
+                                        <?php if($errors->has('age')): ?>
+                                            <p class="text-danger"><?php echo e($errors->first('age')); ?></p>
+                                        <?php endif; ?>
                                     </div>
                                     <div class="clear-fix"></div>
                                 </div>
                                 <div class="add-customer--left__item">
                                     <div class="text"><span>Update :</span></div>
                                     <div class="content">
-                                        <input class="border--base padding--base" type="text" value="{{ $task->update }}" name="update" required="required" patter="^[0-9]*$"/>
-                                        @if($errors->has('update'))
-                                            <p class="text-danger">{{ $errors->first('update') }}</p>
-                                        @endif
+                                        <input class="border--base padding--base" type="text" value="<?php echo e($task->update); ?>" name="update" required="required" patter="^[0-9]*$"/>
+                                        <?php if($errors->has('update')): ?>
+                                            <p class="text-danger"><?php echo e($errors->first('update')); ?></p>
+                                        <?php endif; ?>
                                     </div>
                                     <div class="clear-fix"></div>
                                 </div>
                                 <div class="add-customer--left__item">
                                     <div class="text"><span>To do type :</span></div>
                                     <div class="content">
-                                        <input class="border--base padding--base" type="text" name="type"  value="{{ $task->type }}" required="required" />
-                                        @if($errors->has('type'))
-                                            <p class="text-danger">{{ $errors->first('type') }}</p>
-                                        @endif
+                                        <input class="border--base padding--base" type="text" name="type"  value="<?php echo e($task->type); ?>" required="required" />
+                                        <?php if($errors->has('type')): ?>
+                                            <p class="text-danger"><?php echo e($errors->first('type')); ?></p>
+                                        <?php endif; ?>
                                     </div>
                                     <div class="clear-fix"></div>
                                 </div>
                                 <div class="add-customer--left__item">
                                     <div class="text"><span>Date :</span></div>
                                     <div class="content">
-                                        <input class="border--base padding--base" type="date" name="created_at" value="{{ getDateFromDateTime($task->created_at) }}" required="required" readonly/>
-                                        @if($errors->has('created_at'))
-                                            <p class="text-danger">{{ $errors->first('created_at') }}</p>
-                                        @endif
+                                        <input class="border--base padding--base" type="date" name="created_at" value="<?php echo e(getDateFromDateTime($task->created_at)); ?>" required="required" />
+                                        <?php if($errors->has('created_at')): ?>
+                                            <p class="text-danger"><?php echo e($errors->first('created_at')); ?></p>
+                                        <?php endif; ?>
                                     </div>
                                     <div class="clear-fix"></div>
                                 </div>
                                 <div class="add-customer--left__item">
                                     <div class="text"><span>Deadline :</span></div>
                                     <div class="content">
-                                        <input class="border--base padding--base" type="date" name="deadline" value="{{ getDateFromDateTime($task->deadline) }}" required="required"/>
+                                        <input class="border--base padding--base" type="date" name="deadline" value="<?php echo e(getDateFromDateTime($task->deadline)); ?>" required="required"/>
                                     </div>
                                     <div class="clear-fix"></div>
                                 </div>
@@ -93,19 +95,19 @@
                                     <div class="text"><span>Ranking :</span></div>
                                     <div class="content">
                                         <select class="border--base padding--base" name="ranking" id="ranking">
-                                            <option value="0" {{ $task->ranking=="Low" ? "selected": ""}}>Low</option>
-                                            <option value="1" {{ $task->ranking=="High" ? "selected" : ""}}>High</option>
+                                            <option value="0" <?php echo e($task->ranking=="Low" ? "selected": ""); ?>>Low</option>
+                                            <option value="1" <?php echo e($task->ranking=="High" ? "selected" : ""); ?>>High</option>
                                         </select>
-                                        @if($errors->has('ranking'))
-                                            <p class="text-danger">{{ $errors->first('ranking') }}</p>
-                                        @endif
+                                        <?php if($errors->has('ranking')): ?>
+                                            <p class="text-danger"><?php echo e($errors->first('ranking')); ?></p>
+                                        <?php endif; ?>
                                     </div>
                                     <div class="clear-fix"></div>
                                 </div>
                                 <div class="add-customer--left__item">
                                     <div class="text"><span>Invest :</span></div>
                                     <div class="content">
-                                        <input class="border--base padding--base" type="text" name="invest" value="{{ $task->invest }}" required="required"/>
+                                        <input class="border--base padding--base" type="text" name="invest" value="<?php echo e($task->invest); ?>" required="required"/>
                                     </div>
                                     <div class="clear-fix"></div>
                                 </div>
@@ -114,8 +116,8 @@
                                     <div class="content">
                                         
                                         <select class="border--base padding--base" name="status" id="status">
-                                            <option value="0" {{ $task->status=="Done" ? "selected": ""}}>Done</option>
-                                            <option value="1" {{ $task->status=="Waiting" ? "selected" : ""}}>Waiting</option>
+                                            <option value="0" <?php echo e($task->status=="Done" ? "selected": ""); ?>>Done</option>
+                                            <option value="1" <?php echo e($task->status=="Waiting" ? "selected" : ""); ?>>Waiting</option>
                                         </select>
                                     </div>
                                     <div class="clear-fix"></div>
@@ -123,16 +125,16 @@
                                 <div class="add-customer--left__item">
                                     <div class="text"><span>Status :</span></div>
                                     <div class="content">
-                                        <input class="border--base padding--base" type="text" name="contract" value="{{ $task->contract }}" required="required"/>
-                                        @if($errors->has('status'))
-                                            <p class="text-danger">{{ $errors->first('status') }}</p>
-                                        @endif
+                                        <input class="border--base padding--base" type="text" name="contract" value="<?php echo e($task->contract); ?>" required="required"/>
+                                        <?php if($errors->has('status')): ?>
+                                            <p class="text-danger"><?php echo e($errors->first('status')); ?></p>
+                                        <?php endif; ?>
                                     </div>
                                     <div class="clear-fix"></div>
                                 </div>
                                 <div class="add-customer--left__item text-center">
                                     <button class="btn--primary padding--base btn--submit" type="submit">Save</button>
-                                    <a class="btn--primary padding--base btn--cancel" href="{{route('admin.partner.index')}}">Cancel</a>
+                                    <a class="btn--primary padding--base btn--cancel" href="<?php echo e(route('admin.partner.index')); ?>">Cancel</a>
                                 </div>
                             </form>
                         </div>
@@ -144,9 +146,10 @@
         <!--.add-customer-wrap-->
         
     </div>
-@endsection
-@section('script')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
     <script type="text/javascript">
         
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

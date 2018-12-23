@@ -437,7 +437,21 @@ label.error {
   z-index: 999;
   color: #fff;
 }
-
+.partner_thank .close{
+  padding: 5px;
+  position: absolute;
+  top: -62px;
+  right: -3px;
+  background: #000;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  width: 33px;
+  z-index: 999;
+  color: #fff;
+}
+.partner_thank .modal-header span{
+  font-size: 20px;
+}
 .line-clame__base{
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -646,6 +660,8 @@ label.error {
 
 .footer__col--title img {
   display: block;
+  height: 34px;
+  width: 100%;
 }
 
 .footer__col--title h3 {
@@ -718,6 +734,9 @@ label.error {
   margin-bottom: 10px;
   padding-top: 4px;
   color: #ea723d;
+}
+.footer .footer-contact__item:first-child{
+  color: #666;
 }
 
 .footer .footer-contact__item i {
@@ -819,11 +838,12 @@ ul.link li a {
 
 .logo {
   margin-left: -15px;
+  height: 100px;
 }
 
 .logo img {
   vertical-align: text-bottom;
-  /*height: 100px;*/
+  height: 100px;
 }
 
 .header.fixed {
@@ -1004,6 +1024,7 @@ ul.link li a {
 }
 
 .detail {
+  padding-top: 145px;
   background-color: #f5f5f5;
 }
 
@@ -1857,7 +1878,7 @@ ul.link li a {
 }
 
 .free-cash {
-  padding-top: 193px;
+  padding-top: 145px;
 }
 
 .free-cash__how-we-buy .modal-body {
@@ -1959,32 +1980,38 @@ ul.link li a {
 
 .free-cash__search form input::-webkit-input-placeholder {
   color: #aaa;
+  font-size: 16px;
   font-family: 'opensans', sans-serif;
 }
 
 .free-cash__search form input:-moz-placeholder {
   color: #aaa;
+  font-size: 16px;
   font-family: 'opensans', sans-serif;
 }
 
 .free-cash__search form input::-moz-placeholder {
   color: #aaa;
+  font-size: 16px;
   font-family: 'opensans', sans-serif;
 }
 
 .free-cash__search form input:-ms-input-placeholder {
   color: #aaa;
+  font-size: 16px;
   font-family: 'opensans', sans-serif;
 }
 
 .free-cash__search form input::-ms-input-placeholder {
   color: #aaa;
+  font-size: 16px;
   font-family: 'opensans', sans-serif;
 }
 
 .free-cash__search form input::placeholder {
   color: #aaa;
   font-family: 'opensans', sans-serif;
+  font-size: 16px;
 }
 
 .free-cash__search form a.btn-base {
@@ -3208,6 +3235,8 @@ ul.link li a {
   }
   .footer__col--title img {
     display: inline;
+    height: 34px;
+    width: 100%;
   }
   .footer__col--title h3 {
     text-align: center;

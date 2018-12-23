@@ -536,6 +536,7 @@ button:focus {
   float: left;
   width: 70%;
   position: relative;
+  line-height: 40px;
 }
 
 .add-customer--left__item .content input {
@@ -1288,7 +1289,7 @@ input {
   width: 17ch;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 
@@ -1309,7 +1310,7 @@ input {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 1;
   margin: auto;
 }
 
@@ -1319,11 +1320,20 @@ input {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 1;
   margin: auto;
 }
 
 .table--base p.user {
+  max-width: 20ch;
+  display: inline-block;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  margin: auto;
+}
+.table--base p.email,.table--base p.partner,.table--base p.status {
   max-width: 20ch;
   display: inline-block;
   overflow: hidden;
@@ -2104,4 +2114,10 @@ input[type="file"]{
 /* house */
 .house-list .table-icon i{
   margin: 0;
+}
+.task_todo__content .total p{
+  font-weight: 700;
+}
+.task_todo__content .total span{
+  font-weight: 400;
 }

@@ -1,22 +1,21 @@
-@extends('admin.layouts.app')
-@section('title','Detail')
-@section('css')
-    <link rel="stylesheet" type="text/css" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
+<?php $__env->startSection('title','Detail'); ?>
+<?php $__env->startSection('css'); ?>
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('bootstrap/css/bootstrap.min.css')); ?>">
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"/>
-    <link rel="stylesheet" href="{{asset('frontend-admin/libs/datepicker/jquery-ui.theme.css')}}"/>
-    <link rel="stylesheet" href="{{asset('frontend-admin/libs/datepicker/jquery-ui.min.css')}}"/>
+    <link rel="stylesheet" href="<?php echo e(asset('frontend-admin/libs/datepicker/jquery-ui.theme.css')); ?>"/>
+    <link rel="stylesheet" href="<?php echo e(asset('frontend-admin/libs/datepicker/jquery-ui.min.css')); ?>"/>
     <style>
         a {
             text-decoration: none !important;
         }
     </style>
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
     <div class="customer_detail content-wrap content-wrap2" id="customer_detail">
         <div class="add-customer add-customer-wrap">
             <div class="add-customer__top">
@@ -38,43 +37,43 @@
                                     <div class="customer_detail__content" id="detail">
                                         <div class="add-customer--left__item">
                                             <div class="text"><span>Full name :</span></div>
-                                            <div class="content"><span>{{ $partner->fullname }}</span></div>
+                                            <div class="content"><span><?php echo e($partner->fullname); ?></span></div>
                                             <div class="clear-fix"></div>
                                         </div>
                                         <div class="add-customer--left__item">
                                             <div class="text"><span>Date of birth :</span></div>
-                                            <div class="content"><span>{{ $partner->date_of_birth }}</span></div>
+                                            <div class="content"><span><?php echo e($partner->date_of_birth); ?></span></div>
                                             <div class="clear-fix"></div>
                                         </div>
                                         <div class="add-customer--left__item">
                                             <div class="text"><span>Email :</span></div>
-                                            <div class="content"><span>{{ $partner->email }}</span></div>
+                                            <div class="content"><span><?php echo e($partner->email); ?></span></div>
                                             <div class="clear-fix"></div>
                                         </div>
                                         <div class="add-customer--left__item">
                                             <div class="text"><span>Phone :</span></div>
-                                            <div class="content"><span>{{ $partner->phone }}</span></div>
+                                            <div class="content"><span><?php echo e($partner->phone); ?></span></div>
                                             <div class="clear-fix"></div>
                                         </div>
                                         <div class="add-customer--left__item">
                                             <div class="text"><span>Address :</span></div>
-                                            <div class="content"><span>{{ $partner->address }}</span></div>
+                                            <div class="content"><span><?php echo e($partner->address); ?></span></div>
                                             <div class="clear-fix"></div>
                                         </div>
                                         <div class="add-customer--left__item">
                                             <div class="text"><span>Date of foundation :</span></div>
-                                            <div class="content"><span>{{ $partner->created_at }}</span></div>
+                                            <div class="content"><span><?php echo e($partner->created_at); ?></span></div>
                                             <div class="clear-fix"></div>
                                         </div>
                                         <div class="add-customer--left__item">
                                             <div class="text"><span>Partner type :</span></div>
-                                            <div class="content"><span>{{ $partner->partner_type }}</span></div>
+                                            <div class="content"><span><?php echo e($partner->partner_type); ?></span></div>
                                             <div class="clear-fix"></div>
                                         </div>
                                         
                                         <div class="add-customer--left__item text-center">
-                                            <a class="btn--edit btn--primary padding--base" href="{{ route('admin.partner.edit', ['partner' => $partner->id]) }}">Edit</a>
-                                            <a class="btn--primary padding--base btn--cancel" href="{{ route('admin.partner.index') }}">Cancel</a>
+                                            <a class="btn--edit btn--primary padding--base" href="<?php echo e(route('admin.partner.edit', ['partner' => $partner->id])); ?>">Edit</a>
+                                            <a class="btn--primary padding--base btn--cancel" href="<?php echo e(route('admin.partner.index')); ?>">Cancel</a>
                                             <div class="clear-fix"></div>
                                         </div>
                                     </div>
@@ -129,13 +128,13 @@
                                             </div>
                                             <div class="textbox__note" style="border: 1px solid #000">
                                                 <div id="partner-notifi" cols="30" rows="10" style="padding: 20px 20px;">
-                                                    @if(isset($partner->partner_note))
-                                                        @foreach($partner->partner_note as $note)
+                                                    <?php if(isset($partner->partner_note)): ?>
+                                                        <?php $__currentLoopData = $partner->partner_note; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $note): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                             <div class="detail-note">
-                                                                <span>{{$note->created_at}} - {!!$note->content!!}   </span><i class="fas fa-trash-alt trash" id_note="{{$note->id}}"></i>
+                                                                <span><?php echo e($note->created_at); ?> - <?php echo $note->content; ?>   </span><i class="fas fa-trash-alt trash" id_note="<?php echo e($note->id); ?>"></i>
                                                             </div>
-                                                        @endforeach
-                                                    @endif
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                    <?php endif; ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -145,7 +144,7 @@
                                             <div class="tk-top tk-top-wrap">
                                                 <div class="tk-top__top">
                                                     <div class="tk-top__top--left fleft col-50">
-                                                        <h2 class="tk-top__title"></h2><a class="add-new" href="{{ route('admin.partnerTasks.create', ['partner_id' => $partner->id]) }}">Add new</a>
+                                                        <h2 class="tk-top__title"></h2><a class="add-new" href="<?php echo e(route('admin.partnerTasks.create', ['partner_id' => $partner->id])); ?>">Add new</a>
                                                     </div>
                                                     <div class="tk-top__top--right fleft col-50">
                                                         <div class="text-right disabled"><span class="dashboard">Dashboard</span></div>
@@ -163,7 +162,7 @@
                                                     </div>
                                                     <div class="tk-top__content--row">
                                                         <div class="tk-top__options">
-                                                            <form action="{{ route('admin.partner.show', ['partner' => $partner->id]) }}">
+                                                            <form action="<?php echo e(route('admin.partner.show', ['partner' => $partner->id])); ?>">
                                                                 <div class="col2 fleft">
                                                                     <input class="customer_search padding--base border--base" id="customer_search" type="search" name="customer_search" placeholder="Search keywords ..."/>
                                                                 </div>
@@ -195,18 +194,19 @@
                                                             </form>
                                                         </div>
                                                     </div>
-                                                    @if(session()->has('success'))
+                                                    <?php if(session()->has('success')): ?>
                                                     <div class="alert alert-success text-center">
-                                                        {{ session('success')}}
+                                                        <?php echo e(session('success')); ?>
+
                                                     </div>
-                                                    @endif
+                                                    <?php endif; ?>
                                                 </div>
                                             </div>
                                             <!--.tk-top-wrap-->
                                         </div>
                                         <div class="task_todo__content table--base">
                                             <div class="fright total">
-                                                <p>Total : <span>{{ $tasks->count() }} entries</span></p>
+                                                <p>Total : <span><?php echo e($tasks->count()); ?> entries</span></p>
                                             </div>
                                             <table>
                                                 <tr>
@@ -219,42 +219,43 @@
                                                     <th>Status</th>
                                                     <th>Options</th>
                                                 </tr>
-                                                @foreach($tasks as $task)
+                                                <?php $__currentLoopData = $tasks; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $task): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <tr>
                                                     <td>
-                                                        <p>{{$task->title}}</p>
+                                                        <p><?php echo e($task->title); ?></p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $task->age }}</p>
+                                                        <p><?php echo e($task->age); ?></p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $task->update }}</p>
+                                                        <p><?php echo e($task->update); ?></p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $task->type }}</p>
+                                                        <p><?php echo e($task->type); ?></p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $task->deadline }}</p>
+                                                        <p><?php echo e($task->deadline); ?></p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $task->ranking}}</p>
+                                                        <p><?php echo e($task->ranking); ?></p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $task->status }}</p>
+                                                        <p><?php echo e($task->status); ?></p>
                                                     </td>
                                                     <td>
                                                         <div class="table-icon">
-                                                            <a href="{{ route('admin.partnerTasks.show', ['id' => $task->id]) }}"><i class="far fa-eye"></i></a>
-                                                            <a class="recycle" href="#" data-url="{{ route('admin.partnerTasks.destroy', ['id' => $task->id]) }}" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt"></i></a>
+                                                            <a href="<?php echo e(route('admin.partnerTasks.show', ['id' => $task->id])); ?>"><i class="far fa-eye"></i></a>
+                                                            <a class="recycle" href="#" data-url="<?php echo e(route('admin.partnerTasks.destroy', ['id' => $task->id])); ?>" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt"></i></a>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                @endforeach
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </table>
                                         </div>
                                         <div class="customer_list__bottom table-bot" style="float: right;">
                                             <div class="paging text-right">
-                                                {{ $tasks->links('vendor.pagination.bootstrap-4', ['paginator' => $tasks]) }}
+                                                <?php echo e($tasks->links('vendor.pagination.bootstrap-4', ['paginator' => $tasks])); ?>
+
                                             </div>
                                             <div class="clear-fix"></div>
                                         </div>
@@ -284,17 +285,19 @@
                 <div class="modal-footer popup--footer text-center">
                     <button type="button" class="btn btn-secondary btn--no" data-dismiss="modal">No</button>
                     <form id="delete-form" action="" method="POST">
-                        {{ csrf_field() }}
-                        {{ method_field("DELETE") }}
+                        <?php echo e(csrf_field()); ?>
+
+                        <?php echo e(method_field("DELETE")); ?>
+
                         <button type="submit" class="btn btn-primary btn--yes">Sure</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-@endsection
-@section('script')
-    <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
+    <script src="<?php echo e(asset('bootstrap/js/bootstrap.min.js')); ?>"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/classic/ckeditor.js"></script>
     <script>
         
@@ -309,7 +312,7 @@
             $(this).closest('.detail-note').remove();
             console.log(data);
             $.ajax({
-                url: '{{route('admin.partnernote.delete')}}',
+                url: '<?php echo e(route('admin.partnernote.delete')); ?>',
                 type: 'POST',
                 dataType: 'JSON',
                 data: {id: data},
@@ -323,7 +326,7 @@
                 $(this).closest('.detail-note').remove();
                 console.log(data);
                 $.ajax({
-                    url: '{{route('admin.partnernote.delete')}}',
+                    url: '<?php echo e(route('admin.partnernote.delete')); ?>',
                     type: 'POST',
                     dataType: 'JSON',
                     data: {id: data},
@@ -340,7 +343,7 @@
             param = url.split("/");
             var id_param = param.slice(-1).pop();
             $.ajax({
-                url: '{{route('admin.partnernote.search')}}',
+                url: '<?php echo e(route('admin.partnernote.search')); ?>',
                 type: 'POST',
                 dataType: 'JSON',
                 data: 
@@ -380,7 +383,7 @@
             console.log(id_param);
             console.log(data);
             $.ajax({
-                url: '{{route('admin.partnernote.store')}}',
+                url: '<?php echo e(route('admin.partnernote.store')); ?>',
                 type: 'POST',
                 dataType: 'JSON',
                 data: 
@@ -413,4 +416,6 @@
             $("#delete-form").attr('action', link_recycle);
         });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

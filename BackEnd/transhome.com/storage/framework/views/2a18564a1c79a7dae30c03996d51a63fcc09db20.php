@@ -1,28 +1,27 @@
-@extends('admin.layouts.app')
-@section('title','Partner')
-@section('css')
-  <link rel="stylesheet" type="text/css" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
+<?php $__env->startSection('title','Partner'); ?>
+<?php $__env->startSection('css'); ?>
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('bootstrap/css/bootstrap.min.css')); ?>">
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"/>
-    <link rel="stylesheet" href="{{asset('frontend-admin/libs/datepicker/jquery-ui.theme.css')}}"/>
-    <link rel="stylesheet" href="{{asset('frontend-admin/libs/datepicker/jquery-ui.min.css')}}"/>
+    <link rel="stylesheet" href="<?php echo e(asset('frontend-admin/libs/datepicker/jquery-ui.theme.css')); ?>"/>
+    <link rel="stylesheet" href="<?php echo e(asset('frontend-admin/libs/datepicker/jquery-ui.min.css')); ?>"/>
     <style>
         a {
             text-decoration: none !important;
         }
     </style>
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 	<div class="partner-list content-wrap content-wrap2" id="partner-list">
         <div class="partner-list__top">
           <div class="tk-top tk-top-wrap">
             <div class="tk-top__top">
               <div class="tk-top__top--left fleft col-50">
-                <h2 class="tk-top__title">Partner</h2><a class="add-new" href="{{ route('admin.partner.create') }}">Add new</a>
+                <h2 class="tk-top__title">Partner</h2><a class="add-new" href="account-add.html">Add new</a>
               </div>
               <div class="tk-top__top--right fleft col-50">
                 <div class="text-right"><span class="dashboard">Dashboard</span></div>
@@ -33,8 +32,8 @@
               <div class="tk-top__content--row">
                 <div class="tk-top__links">
                   <ul class="list-inline">
-                    <li><a href="{{route('admin.partner.index')}}"><span class="link-text">View </span><span class="link-number">({{($view)}})</span></a></li>
-                    <li><a href="{{route('admin.partner.recycle')}}"><span class="link-text">Recycle Bin </span><span class="link-number">({{($recycle)}})</span></a></li>
+                    <li><a href="<?php echo e(route('admin.partner.index')); ?>"><span class="link-text">View </span><span class="link-number">(<?php echo e(($view)); ?>)</span></a></li>
+                    <li><a href="<?php echo e(route('admin.partner.recycle')); ?>"><span class="link-text">Recycle Bin </span><span class="link-number">(<?php echo e(($recycle)); ?>)</span></a></li>
                   </ul>
                 </div>
               </div>
@@ -45,11 +44,6 @@
                       <input class="customer_search padding--base border--base" id="customer_search" type="search" name="keyword" placeholder="keyword"/>
                     </div>
                     <div class="col2 fleft">
-                      <!-- <select class="customer-status padding--base border--base" id="customer-status" name="status">
-                        <option value="default">--- Status ---</option>
-                        <option value="0">Waiting for approvel</option>
-                        <option value="1">Active</option>
-                      </select> -->
                       <input class="customer_search padding--base border--base" id="customer_search" type="search" name="status" placeholder="status"/>
                     </div>
                     <div class="col-25 fleft">
@@ -75,18 +69,20 @@
               </div>
             </div>
           </div>
-          @if(session()->has('success'))
+          <?php if(session()->has('success')): ?>
           <br/>
           <div class="alert alert-success text-center">
-              {{ session('success') }}
+              <?php echo e(session('success')); ?>
+
           </div>
-              {{session()->forget('success')}}
-          @endif
+              <?php echo e(session()->forget('success')); ?>
+
+          <?php endif; ?>
           <!--.tk-top-wrap-->
         </div>
         <div class="partner-list__main">
           <div class="fright total">
-            <p>Total : <span>{{$view}} entries</span></p>
+            <p>Total : <span><?php echo e($view); ?> entries</span></p>
           </div>
           <div class="table--base partner-list__table">
             <table>
@@ -102,98 +98,124 @@
                 <th>Note</th>
                 <th>Options</th>
               </tr>
-              @if(isset($partners))
-              @foreach($partners as $key => $partner)
+              <?php if(isset($partners)): ?>
+              <?php $__currentLoopData = $partners; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $partner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
                   <td>
-                    <p>{{(($partners->currentPage()-1)* $partners->perPage()) + ($key+1)}}</p>
+                    <p><?php echo e((($partners->currentPage()-1)* $partners->perPage()) + ($key+1)); ?></p>
                   </td>
                   <td>
-                    <p class="name">{{$partner->fullname}}</p>
+                    <p><?php echo e($partner->fullname); ?></p>
                   </td>
                   <td>
-                    <p class="email">{{$partner->email}}</p>
+                    <p><?php echo e($partner->email); ?></p>
                   </td>
                   <td>
-                    <p>{{$partner->phone}}</p>
+                    <p><?php echo e($partner->phone); ?></p>
                   </td>
                   <td>
-                    @if(isset($partner->address))
-                    <p class="address">{{$partner->address}}</p>
-                    @else
+                    <?php if(isset($partner->address)): ?>
+                    <p><?php echo e($partner->address); ?></p>
+                    <?php else: ?>
                     <p> - <p>
-                    @endif
+                    <?php endif; ?>
                   </td>
                   <td>
-                    <p>{{$partner->created_at}}</p>
+                    <p><?php echo e($partner->created_at); ?></p>
                   </td>
                   <td>
-                    @if(isset($partner->partner_type))
-                    <p class="partner">{{$partner->partner_type}}</p>
-                    @else
+                    <?php if(isset($partner->partner_type)): ?>
+                    <p><?php echo e($partner->partner_type); ?></p>
+                    <?php else: ?>
                     <p> - <p>
-                    @endif
+                    <?php endif; ?>
                   </td>
                   <td>
-                    @if(isset($partner->status))
-                    <p class="status">{{$partner->status}}</p>
-                    @else
+                    <?php if(isset($partner->status)): ?>
+                    <p><?php echo e($partner->status); ?></p>
+                    <?php else: ?>
                     <p> - <p>
-                    @endif
+                    <?php endif; ?>
                   </td>
                   <td>
-                    <div class="table-icon"><i class="far fa-sticky-note note_popup" data-toggle="modal" data-target="#exampleNote" id-customer="{{$partner->id}}"></i>
-                                </div>
+                    <div class="table-icon"><i class="far fa-sticky-note note_popup" data-toggle="modal" data-target="#exampleNote" id-customer="<?php echo e($partner->id); ?>"></i>
+                    </div>
                   </td>
                   <td>
-                  <div class="table-icon">
-                      <a href="{{ route('admin.partner.show', ['id' => $partner->id]) }}"><i class="far fa-eye"></i></a>
-                      <a class="recycle" href="#"
-                         idrecycle="{{ route('admin.partner.delete.recycle', ['id' => $partner->id]) }}"
-                         data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt"></i></a>
+                    <div class="table-icon">
+                      <a class="undo" href="#" undo="<?php echo e(route('admin.partner.undo',['id'=>$partner->id])); ?>" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-undo"></i></a>
+                      <a class="delete" delete="<?php echo e(route('admin.partner.destroy',$partner)); ?>" data-toggle="modal" data-target="#exampleModal2"><i class="fas fa-trash-alt"  title="Recycle"></i></a>
                     </div>
                   </td>
                 </tr>
-              @endforeach
-              @endif
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+              <?php endif; ?>
             </table>
           </div>
           <div class="danhsachtk__bottom table-bot">
             <div class="fleft col-50">
                 <p class="text"><span>Showing </span><span
-                            class="from-row">{{(($partners->currentPage() - 1 ) * $partners->perPage())+1}} </span><span>to </span><span
-                            class="to-row">{{(($partners->currentPage() - 1 ) * $partners->perPage())+sizeof($partners)}} </span><span>of </span><span
-                            class="title-row">{{$partners->total()}} </span><span>entries</span></p>
+                            class="from-row"><?php echo e((($partners->currentPage() - 1 ) * $partners->perPage())+1); ?> </span><span>to </span><span
+                            class="to-row"><?php echo e((($partners->currentPage() - 1 ) * $partners->perPage())+sizeof($partners)); ?> </span><span>of </span><span
+                            class="title-row"><?php echo e($partners->total()); ?> </span><span>entries</span></p>
             </div>
             <div class="fleft col-30" style="float: right;">
                 <div class="paging text-right">
-                    {{ $partners->links('vendor.pagination.bootstrap-4', ['paginator' => $partners]) }}
+                    <?php echo e($partners->links('vendor.pagination.bootstrap-4', ['paginator' => $partners])); ?>
+
                 </div>
             </div>
             <div class="clear-fix"></div>
         </div>
         </div>
       </div>
-      <!-- Modal recycle -->
+      <!-- Modal Undo -->
     <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content popup--content">
-                <div class="modal-header popup--header">
-                    <!-- <h5 class="modal-title" id="exampleModalLabel">Are you sure about this?</h5> -->
-                    <button type="button" class="close btn--close" data-dismiss="modal" aria-label="Close">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Are you sure about this?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body popup--body text-center">
-                    <h3>Are you sure to delete this row?</h3>
+                <div class="modal-body">
+                    <h3>Recover Partner</h3>
                 </div>
-                <div class="modal-footer popup--footer text-center">
-                    <button type="button" class="btn btn-secondary btn--no" data-dismiss="modal">No</button>
-                    <a id="form-recycle" href="">
-                        <button type="submit" class="btn btn-primary btn--yes">Yes</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn--no" data-dismiss="modal">Close</button>
+                    <a id="form-undo" href="">
+                        <button id="btn-undo" type="submit" class="btn btn-primary btn--yes">Sure</button>
                     </a>
                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Delete -->
+    <div class="modal" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content popup--content">
+                <form id="form-delete" action="" method="post">
+                    <?php echo e(method_field('DELETE')); ?>
+
+                    <?php echo e(csrf_field()); ?>
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Are you sure about this?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Delete Partner</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn--no" data-dismiss="modal">Close</button>
+                        <button id="btn-delete" type="submit" class="btn btn-primary btn--yes">Sure</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -230,26 +252,26 @@
             </div>
         </div>
     </div>
-@endsection
-@section('script')
-    <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
-    <script type="text/javascript">
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
+  <script src="<?php echo e(asset('bootstrap/js/bootstrap.min.js')); ?>"></script>
+    <script>
         $(document).ready(function () {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
+            $(".undo").click(function (event) {
+                var link_undo = $(this).attr('undo');
+                console.log(link_undo);
+                $("#form-undo").attr('href', link_undo);
             });
-            $('.recycle').click(function (event) {
-                var link_recycle = $(this).attr('idrecycle');
-                console.log(link_recycle);
-                $("#form-recycle").attr('href', link_recycle);
+            $(".delete").click(function (event) {
+                var link_delete = $(this).attr('delete');
+                console.log(link_delete);
+                $("#form-delete").attr('action', link_delete);
             });
             $('.note_popup').click(function(event) {
                 // alert('1111');
                 var data = $(this).attr('id-customer');
                 $.ajax({
-                    url: '{{route('admin.partner.getnotepartner')}}',
+                    url: '<?php echo e(route('admin.customers.getnotecustomer')); ?>',
                     type: 'GET',
                     dataType: 'json',
                     data: {id : data },
@@ -277,4 +299,5 @@
             });
         });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

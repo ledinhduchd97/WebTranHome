@@ -1,33 +1,32 @@
-@extends('layouts.app')
-@section('title','Sell my home')
-@section('css')
-@endsection
-@section('content')
+<?php $__env->startSection('title','Sell my home'); ?>
+<?php $__env->startSection('css'); ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
       <div class="free-cash free-cash-wrap">
         <div class="free-cash__how-we-buy">
           <div class="container">
             <div class="modal-header">
-              <h3 class="modal-title form_information__title" id="form_information__title">{{$freecashes->form_information_title_h3}}</h3>
-              <h4>{{$freecashes->form_information_title_h4}}</h4>
+              <h3 class="modal-title form_information__title" id="form_information__title"><?php echo e($freecashes->form_information_title_h3); ?></h3>
+              <h4><?php echo e($freecashes->form_information_title_h4); ?></h4>
             </div>
             <div class="modal-body">
               <div class="row">
                 <div class="col-lg-4 col-sm-4">
-                  <div class="how_we--item"><img class="how_we--item__img" src="{{asset('frontend/images/free-cash-img1.png')}}" alt="anh"/>
-                    <h4 class="how_we--item__title">{{$freecashes->how_we_item_title_1}}</h4>
-                    <p class="how_we--item__desc">{{$freecashes->how_we_item_desc_1}}</p>
+                  <div class="how_we--item"><img class="how_we--item__img" src="<?php echo e(asset('frontend/images/free-cash-img1.png')); ?>" alt="anh"/>
+                    <h4 class="how_we--item__title"><?php echo e($freecashes->how_we_item_title_1); ?></h4>
+                    <p class="how_we--item__desc"><?php echo e($freecashes->how_we_item_desc_1); ?></p>
                   </div>
                 </div>
                 <div class="col-lg-4 col-sm-4">
-                  <div class="how_we--item"><img class="how_we--item__img" src="{{asset('frontend/images/free-cash-img2.png')}}" alt="anh"/>
-                    <h4 class="how_we--item__title">{{$freecashes->how_we_item_title_2}}</h4>
-                    <p class="how_we--item__desc">{{$freecashes->how_we_item_desc_2}}</p>
+                  <div class="how_we--item"><img class="how_we--item__img" src="<?php echo e(asset('frontend/images/free-cash-img2.png')); ?>" alt="anh"/>
+                    <h4 class="how_we--item__title"><?php echo e($freecashes->how_we_item_title_2); ?></h4>
+                    <p class="how_we--item__desc"><?php echo e($freecashes->how_we_item_desc_2); ?></p>
                   </div>
                 </div>
                 <div class="col-lg-4 col-sm-4">
-                  <div class="how_we--item"><img class="how_we--item__img" src="{{asset('frontend/images/free-cash-img3.png')}}" alt="anh"/>
-                    <h4 class="how_we--item__title">{{$freecashes->how_we_item_title_3}}</h4>
-                    <p class="how_we--item__desc">{{$freecashes->how_we_item_desc_3}}</p>
+                  <div class="how_we--item"><img class="how_we--item__img" src="<?php echo e(asset('frontend/images/free-cash-img3.png')); ?>" alt="anh"/>
+                    <h4 class="how_we--item__title"><?php echo e($freecashes->how_we_item_title_3); ?></h4>
+                    <p class="how_we--item__desc"><?php echo e($freecashes->how_we_item_desc_3); ?></p>
                   </div>
                 </div>
               </div>
@@ -57,7 +56,7 @@
               <div class="col-lg-12 col-md-12">
                 <div class="how_we__table">
                   <h3 class="how_we__table-title">Selling To On Faith Properties LLC vs. Listing With A Local California Agent</h3>
-                  <p class="how_we__table-desc">{{$setup->sell_my_home}}</p>
+                  <p class="how_we__table-desc"><?php echo e($setup->sell_my_home); ?></p>
                   <table class="how_we__table-infor col-md-12">
                     <tr>
                       <th class="col-md-4"></th>
@@ -94,7 +93,7 @@
               </div>
               <div class="modal_map modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="modal_map__title" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content"><a class="close btn btn-base"  aria-label="Close" href="{{ route('get.index') }}"><span aria-hidden="true">&times;</span></a>
+                  <div class="modal-content"><a class="close btn btn-base"  aria-label="Close" href="<?php echo e(route('get.index')); ?>"><span aria-hidden="true">&times;</span></a>
                     <div class="container">
                       <div class="row"> 
                         <div class="col-lg-5">
@@ -106,15 +105,15 @@
                               <p class="modal_map__desc">Please fill in your information</p>
                               <form id="form__infor">
                                 <div class="form__infor--item"><i class="fas fa-user"></i>
-                                  <input id="first_name" value="{{ request()->first_name }}" type="text" name="first_name" placeholder="First name"/>
+                                  <input id="first_name" value="<?php echo e(request()->first_name); ?>" type="text" name="first_name" placeholder="First name"/>
                                   <label id="error-first_name" class="error" for="first_name"></label>
                                 </div>
                                 <div class="form__infor--item"><i class="fas fa-envelope"></i>
-                                  <input id="email" type="email" value="{{ request()->email }}" name="email" placeholder="Email *"/>
+                                  <input id="email" type="email" value="<?php echo e(request()->email); ?>" name="email" placeholder="Email *"/>
                                   <label id="error-email" class="error" for="email"></label>
                                 </div>
                                 <div class="form__infor--item"><i class="fas fa-phone"></i>
-                                  <input id="phone" type="tel" value="{{ request()-> phone}}" name="phone" placeholder="Phone"/>
+                                  <input id="phone" type="tel" value="<?php echo e(request()-> phone); ?>" name="phone" placeholder="Phone"/>
                                   <label id="error-phone" class="error" for="phone"></label>
                                 </div>
                                 <div class="form__infor--item">
@@ -141,13 +140,13 @@
               </div>
               <div class="modal_thanks modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="modal_thanks__title" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
-                  <div class="modal-content modal-thanks"><a class="close btn btn-base" aria-label="Close" href="{{ route('get.index') }}"><span aria-hidden="true">&times;</span></a>
+                  <div class="modal-content modal-thanks"><a class="close btn btn-base" aria-label="Close" href="<?php echo e(route('get.index')); ?>"><span aria-hidden="true">&times;</span></a>
                     <div class="container">
                       <div class="modal-header">
                         <h3 id="modal_thanks__title">Thank You For Your Request!</h3>
                       </div>
                       <div class="modal-body">
-                        <p class="modal_thanks__desc "><span>{!!$setup->thank_you!!} </span><span style="color: #ea723d">{{ $setup->phone }}</span></p>
+                        <p class="modal_thanks__desc "><span><?php echo $setup->thank_you; ?> </span><span style="color: #ea723d"><?php echo e($setup->phone); ?></span></p>
                         <div class="fright modal_map_address"></div>
                         <div class="clear-fix"></div>
                       </div>
@@ -159,8 +158,8 @@
           </div>
         </div>
       </div>
-@endsection
-@section('scripts')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
   <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap">
   </script>
@@ -227,7 +226,7 @@
       var data = $(this).val();
       console.log(data);
       $.ajax({
-        url: '{{route('post.email.customers')}}',
+        url: '<?php echo e(route('post.email.customers')); ?>',
         type: 'POST',
         dataType: 'JSON',
         data: {email: data},
@@ -251,7 +250,7 @@
         phone : _phone 
       };
       $(".message-error").html("");
-      axios.post("{{route('post.addcustomer')}}", data)
+      axios.post("<?php echo e(route('post.addcustomer')); ?>", data)
       .then(res => {
         $('.modal_thanks').modal('show'); 
         $('.modal_map').modal('hide');
@@ -272,4 +271,5 @@
     });
         
 	</script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

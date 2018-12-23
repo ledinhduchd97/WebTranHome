@@ -31,7 +31,7 @@
               <ul class="list-inline">
                 <li><a href="{{route('get.index')}}"><span>home</span></a></li>
                 <li><a href="#feature"><span>Properties</span></a></li>
-                <li><a href="#sell"><span>Sell My Home</span></a></li>
+                <li><a href="http://127.0.0.1:8000/freecash"><span>Sell My House</span></a></li>
                 <li><a href="#about-us"><span>About Us</span></a></li>
                 <li class="padding-none"><a href="#partner"><span>Partner</span></a></li>
               </ul>

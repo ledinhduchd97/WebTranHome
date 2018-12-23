@@ -349,8 +349,9 @@
                                 <div class="modal-content">
                                   <div class="partner_thank"> 
                                     <div class="modal-header">
-                                      <h3 id="thank_partner__title">Thank you!</h3>
-                                      <h4>{!!$setup->thank_you!!}</h4>
+                                      <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                                      <h3 id="thank_partner__title">Thank You For Your Request!</h3>
+                                      <span>{!!$setup->thank_you!!}<span style="color: #ea723d">{{ $setup->phone }}</span></span>
                                     </div>
                                   </div>
                                 </div>
