@@ -94,7 +94,7 @@
                 </div>
                 <div class="edit-house--left__item">
                   <div class="text"><span>Description :</span></div>
-                  <div class="content"><span>{{$house->description}}</span></div>
+                  <div class="content"><span>{!!$house->description!!}</span></div>
                   <div class="clear-fix"></div>
                 </div>
                 <div class="edit-house--left__title">

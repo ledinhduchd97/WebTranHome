@@ -88,7 +88,7 @@
                     <div class="clear-fix"></div>
                 </div>
                 <div class="form-group form--base set-up-form--item">
-                    <label class="control-label col-sm-2 text" for="image">Thanks you:</label>
+                    <label class="control-label col-sm-2 text">Thank you:</label>
                     <div class="col-sm-10 content">
                         <textarea name="thank_you" id="news" cols="30" rows="10">{{$setup->thank_you}}</textarea>
                         @if ($errors)
@@ -98,7 +98,7 @@
                     <div class="clear-fix"></div>
                 </div>
                 <div class="form-group form--base set-up-form--item">
-                    <label class="control-label col-sm-2 text" for="image">Description sell my home:</label>
+                    <label class="control-label col-sm-2 text">Description sell my home:</label>
                     <div class="col-sm-10 content">
                         <textarea name="sell_my_home"  cols="30" rows="10">{{$setup->sell_my_home}}</textarea>
                         @if ($errors)

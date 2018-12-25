@@ -660,8 +660,8 @@ label.error {
 
 .footer__col--title img {
   display: block;
-  height: 34px;
-  width: 100%;
+  /*height: 34px;
+  width: 100%;*/
 }
 
 .footer__col--title h3 {
@@ -843,7 +843,7 @@ ul.link li a {
 
 .logo img {
   vertical-align: text-bottom;
-  height: 100px;
+  /*height: 100px;*/
 }
 
 .header.fixed {

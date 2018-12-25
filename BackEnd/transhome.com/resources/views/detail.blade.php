@@ -43,15 +43,7 @@
               </div>
               <div class="col-4 col-md-3 text-center">
                 <div class="information__house--price">
-                  <h4>@if($house->unit == 0 )
-                                                    €
-                                                @endif 
-                                                @if($house->unit == 1)
-                                                    $
-                                                @endif
-                                                @if($house->unit == 2)
-                                                    £  
-                                                @endif {{$house->price}}</h4>
+                  <h4>{{ $house->unit }} {{ $house->price }}</h4>
                 </div>
               </div>
               <!--FE end update HTML 26/10-->
@@ -84,7 +76,7 @@
                 </div>
                 <div class="property_desc">
                   <h3 class="property_desc--title">Property Description</h3>
-                  <p class="property_desc--content">{{$house->description}}</p>
+                  <p class="property_desc--content">{!!$house->description!!}</p>
                 </div>
                 <div class="general_table">
                   <table class="general_infor">
@@ -147,15 +139,7 @@
                               <div class="other_house--overlay-black"></div>
                               <div class="other_house--item__desc text-left">
                                 <p class="name_house">{{$hl->name}}</p>
-                                <p class="price highlight2">@if($hl->unit == 0 )
-                                                    €
-                                                @endif 
-                                                @if($hl->unit == 1)
-                                                    $
-                                                @endif
-                                                @if($hl->unit == 2)
-                                                    £  
-                                                @endif {{$hl->price}}</p>
+                                <p class="price highlight2">{{ $hl->unit }} {{ $hl->price }}</p>
                               </div>
                             </a>
                           </div>

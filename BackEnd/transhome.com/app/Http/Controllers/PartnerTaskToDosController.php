@@ -43,10 +43,12 @@ class PartnerTaskToDosController extends Controller
     {
         $rules = [
             'title' => 'required|max:250',
-            'age' => 'required',
+            'age' => 'required|number',
             'type' => 'required',
-            'update' => 'required',
-            'ranking' => 'required'
+            'update' => 'required|number',
+            'ranking' => 'required',
+            'contract' => 'number',
+            ''
         ];
         $request->validate($rules);
         $this->task->create($request->all());
@@ -97,7 +99,18 @@ class PartnerTaskToDosController extends Controller
             'ranking' => 'required'
         ];
         $request->validate($rules);
-        $task->update($request->all());
+        $task->title = $request->title;
+        $task->age = $request->age;
+        $task->update = $request->update;
+        $task->type = $request->type;
+        $task->deadline = $request->deadline;
+        $task->status = $request->status;
+        $task->invest = $request->invest;
+        $task->contract = $request->contract;
+        $task->ranking = $request->ranking;
+        $task->invest = $request->invest;
+        $task->created_at = $request->created_at;
+        $task->save();
         session()->flash('success', 'Update succesfully');
         return back();
     }

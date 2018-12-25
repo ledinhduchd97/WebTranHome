@@ -22,7 +22,7 @@
           <div class="tk-top tk-top-wrap">
             <div class="tk-top__top">
               <div class="tk-top__top--left fleft col-50">
-                <h2 class="tk-top__title">Partner</h2><a class="add-new" href="account-add.html">Add new</a>
+                <h2 class="tk-top__title">Partner</h2><a class="add-new" href="{{ route('admin.partner.create') }}">Add new</a>
               </div>
               <div class="tk-top__top--right fleft col-50">
                 <div class="text-right"><span class="dashboard">Dashboard</span></div>

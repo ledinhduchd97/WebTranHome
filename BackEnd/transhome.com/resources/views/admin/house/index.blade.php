@@ -143,15 +143,7 @@
                             <td><p class="address">{{$house->address}}</p></td>
                             <td>{{$house->site_area}}</td>
                             <td>{{$house->area_gross_floor}}</td>
-                            <td>@if($house->unit == 0 )
-                                                    €
-                                                @endif 
-                                                @if($house->unit == 1)
-                                                    $
-                                                @endif
-                                                @if($house->unit == 2)
-                                                    £  
-                                                @endif {{$house->price}}</td>
+                            <td>{{ $house->unit }} {{ $house->price }}</td>
                             <td>{{$house->number_bedroom}}</td>
                             <td>{{$house->number_bathroom}}</td>
                             <td>{{$house->created_at}}</td>

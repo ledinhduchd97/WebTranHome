@@ -28,7 +28,7 @@ class HousesTableSeeder extends Seeder
                 'area' => 'Arab Saudi',
                 'zipcode' => '1111111',
                 'builded_year' => '19950105',
-                'video' => 'https://www.youtube.com/watch?v=BhSsopT6h4A',
+                'video' => 'https://www.youtube.com/watch?v=oqmK3xLXw9c',
                 'note' => 'Fixer Upper',
                 'brokerage' => 'Luong',
                 'mls' => 'Luong',

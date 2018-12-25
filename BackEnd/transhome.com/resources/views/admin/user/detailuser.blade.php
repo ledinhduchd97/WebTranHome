@@ -48,11 +48,6 @@
                         <div class="content"><span class="acc-username">{{$user->username}}</span></div>
                         <div class="clear-fix"></div>
                     </div>
-                    <!-- <div class="view-detail__content--row">
-                      <div class="text"><span>password :</span></div>
-                      <div class="content"><span class="acc-password">12345678</span></div>
-                      <div class="clear-fix"></div>
-                    </div> -->
                     <div class="view-detail__content--row">
                         <div class="text"><span>Gender :</span></div>
                         <div class="content"><span class="acc-gender">@if($user->gender == 1)

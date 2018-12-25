@@ -144,21 +144,9 @@
                                             <input class="border--base padding--base" id="price" type="text"
                                                    value="{{$house->price}}" name="price"/><span class="unit-text">Unit :</span>
                                             <select class="border--base padding--base" id="unit" name="unit">
-                                                @if($house->unit == 0 )
-                                                    <option value="0">€</option>
-                                                    <option value="1">$</option>
-                                                    <option value="2">£</option>
-                                                @endif 
-                                                @if($house->unit == 1)
-                                                    <option value="1">$</option>
-                                                    <option value="0">€</option>
-                                                    <option value="2">£</option>
-                                                @endif
-                                                @if($house->unit == 2)
-                                                    <option value="2">£</option>
-                                                    <option value="1">$</option>
-                                                    <option value="0">€</option>    
-                                                @endif
+                                                    <option value="0" {{$house->get_value_unit($house->unit) == 0?"selected":""}}>€</option>
+                                                    <option value="1" {{$house->get_value_unit($house->unit) == 1?"selected":""}}>$</option>
+                                                    <option value="2" {{$house->get_value_unit($house->unit) == 2?"selected":""}}>£</option>
                                             </select>
                                             @if($errors->has('unit'))
                                                 <p class="text-danger">{{ $errors->first('unit') }}</p>

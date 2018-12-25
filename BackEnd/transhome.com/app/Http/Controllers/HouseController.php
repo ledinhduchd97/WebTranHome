@@ -152,6 +152,10 @@ class HouseController extends Controller
             'builded_year' => 'required|numeric',
         ],
         [
+            'site_area.required' => 'The living area field is required',
+            'site_area.numeric' => 'The living area field must be number',
+            'area_gross_floor.required' => 'The lot size  field is required',
+            'area_gross_floor.numeric' => 'The lot size field must be number',
         ]);
         $house = House::create([
             'name' => $request->name,
@@ -254,9 +258,36 @@ class HouseController extends Controller
      * @param  \App\House  $house
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateHouseRequest $request, $house)
+    public function update(Request $request, $house)
     {
-        // dd($request->phone);
+        $request->validate([
+           'name' => 'required|max:100',
+            'code' => 'required|max:10',
+            'note' => 'max:250',
+            'phone' => 'required|max:13|regex:/^[0-9 \(\)-]+$/',
+            'address' => 'required|max:250',
+            'area' => 'required',
+            'number_bedroom' => 'required|numeric',
+            'number_bathroom' => 'required|numeric',
+            'site_area' => 'required|numeric',
+            'area_gross_floor' => 'required|numeric',
+            'price' => 'required|numeric',
+            'unit' => 'required',
+            'video' => 'required',
+            'description' => 'max:250',
+            'brokerage' => 'required|max:100',
+            'agent' => 'required|max:100',
+            'license' => 'required',
+            'mls' => 'required|max:25',
+            'zipcode' => 'required|max:10',
+            'builded_year' => 'required|numeric',
+        ],
+        [
+            'site_area.required' => 'The living area field is required',
+            'site_area.numeric' => 'The living area field must be number',
+            'area_gross_floor.required' => 'The lot size  field is required',
+            'area_gross_floor.numeric' => 'The lot size field must be number',
+        ]);
         $house = House::findOrFail($house);  
         $house->name = $request->name;
         $house->code = $request->code;
@@ -278,7 +309,14 @@ class HouseController extends Controller
         $house->zipcode = $request->zipcode;
         $house->builded_year = $request->builded_year;
         $house->user_update = $request->user_update;
-        $house->video = "https://www.youtube.com/embed/" . explode("=", $request->video)[1];
+        if(isset(explode("=", $request->video)[1]))
+        {
+            $house->video = "https://www.youtube.com/embed/" . explode("=", $request->video)[1];
+        }
+        else
+        {
+            $house->video = $request->video;
+        }
         $house->status = $request->status;
 
         if($request->hasFile("image_home")) {

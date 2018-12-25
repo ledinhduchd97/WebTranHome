@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title','ADD NEW ACCOUNT')
+@section('title','Add new task to do')
 @section('css')
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
@@ -60,7 +60,7 @@
                         <div class="text"><span>
                      Age (<span class="required">*</span>):</span></div>
                         <div class="content">
-                            <input class="border--base padding--base" id="age" type="text" value="" name="age" pattern="^[0-9]*$"/>
+                            <input class="border--base padding--base" id="age" type="number" value="" name="age" pattern="^[0-9]*$"/>
                             <div class="error-email">
                                 @if(sizeof($errors) != 0)
                                     @if($errors)
@@ -75,7 +75,7 @@
                         <div class="text"><span>
                      Update (<span class="required">*</span>):</span></div>
                         <div class="content">
-                            <input class="border--base padding--base" id="update" type="text" value="" name="update" pattern="^[0-9]*$"/>
+                            <input class="border--base padding--base" id="update" type="number" placeholder="" value="" name="update" pattern="^[0-9]*$"/>
                             <div class="error-username">
                                 @if(sizeof($errors) != 0)
                                     @if($errors)
@@ -148,7 +148,7 @@
                         <div class="text"><span>
                     Invest (<span class="required">*</span>):</span></div>
                         <div class="content">
-                            <input class="border--base padding--base" id="invest" type="text" value="" name="invest"/>
+                            <input class="border--base padding--base" id="invest" type="number" value="" name="invest"/>
                             <div class="error-invest">
                                 @if(sizeof($errors) != 0)
                                     @if($errors)
@@ -161,17 +161,17 @@
                     </div>
                     <div class="edit-tk__content--row">
                         <div class="text"><span>
-                    Contract (<span class="required">*</span>):</span></div>
+                    Status (<span class="required">*</span>):</span></div>
                         <div class="content">
                         <select class="account-position border--base padding--base" id="status" name="status">
-                                <option value="">--- status ---</option>
+                                <option value="">--Status--</option>
                                 <option value="0">Waiting</option>
                                 <option value="1">Done</option>
                             </select>
                             <div class="error-contract">
                                 @if(sizeof($errors) != 0)
                                     @if($errors)
-                                        <p style="color:red; font-size: 10px;">{{$errors->first('contract')}}</p>
+                                        <p style="color:red; font-size: 10px;">{{$errors->first('status')}}</p>
                                     @endif
                                 @endif
                             </div>
@@ -180,15 +180,15 @@
                     </div>
                     <div class="edit-tk__content--row">
                         <div class="text"><span>
-                     Status (<span class="required">*</span>):</span></div>
+                     Contract (<span class="required">*</span>):</span></div>
                         <div class="content">
-                            <input class="border--base padding--base" id="contract" type="text" value=""
+                            <input class="border--base padding--base" id="contract" type="number" value=""
                                    name="contract"/>
                             
                             <div class="error-sex">
                                 @if(sizeof($errors) != 0)
                                     @if($errors)
-                                        <p style="color:red; font-size: 10px;">{{$errors->first('status')}}</p>
+                                        <p style="color:red; font-size: 10px;">{{$errors->first('contract')}}</p>
                                     @endif
                                 @endif
                             </div>

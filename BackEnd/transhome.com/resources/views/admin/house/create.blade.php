@@ -27,7 +27,7 @@
                                     @endif  
                                 </div>
                                 <input type="hidden" value="{{Auth::id()}}" name="user_id">
-                                <input type="hidden" value="1" name="status">
+                                <input type="hidden" value="0" name="status">
                                 <div class="edit-house--left__item">
                                     <div class="text"><span>House name :</span></div>
                                     <div class="content">

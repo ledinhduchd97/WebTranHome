@@ -45,7 +45,7 @@
                                 <div class="add-customer--left__item">
                                     <div class="text"><span>Age :</span></div>
                                     <div class="content">
-                                        <input class="border--base padding--base" type="text" name="age" value="{{ $task->age }}" required="required" patter="^[0-9]*$"/>
+                                        <input class="border--base padding--base" type="number" name="age" value="{{ $task->age }}" required="required" patter="^[0-9]*$"/>
                                         @if($errors->has('age'))
                                             <p class="text-danger">{{ $errors->first('age') }}</p>
                                         @endif
@@ -55,7 +55,7 @@
                                 <div class="add-customer--left__item">
                                     <div class="text"><span>Update :</span></div>
                                     <div class="content">
-                                        <input class="border--base padding--base" type="text" value="{{ $task->update }}" name="update" required="required" patter="^[0-9]*$"/>
+                                        <input class="border--base padding--base" type="number" value="{{ $task->update }}" name="update" required="required" patter="^[0-9]*$"/>
                                         @if($errors->has('update'))
                                             <p class="text-danger">{{ $errors->first('update') }}</p>
                                         @endif
@@ -105,25 +105,25 @@
                                 <div class="add-customer--left__item">
                                     <div class="text"><span>Invest :</span></div>
                                     <div class="content">
-                                        <input class="border--base padding--base" type="text" name="invest" value="{{ $task->invest }}" required="required"/>
-                                    </div>
-                                    <div class="clear-fix"></div>
-                                </div>
-                                <div class="add-customer--left__item">
-                                    <div class="text"><span>Contract :</span></div>
-                                    <div class="content">
-                                        
-                                        <select class="border--base padding--base" name="status" id="status">
-                                            <option value="0" {{ $task->status=="Done" ? "selected": ""}}>Done</option>
-                                            <option value="1" {{ $task->status=="Waiting" ? "selected" : ""}}>Waiting</option>
-                                        </select>
+                                        <input class="border--base padding--base" type="number" name="invest" value="{{ $task->invest }}" required="required"/>
                                     </div>
                                     <div class="clear-fix"></div>
                                 </div>
                                 <div class="add-customer--left__item">
                                     <div class="text"><span>Status :</span></div>
                                     <div class="content">
-                                        <input class="border--base padding--base" type="text" name="contract" value="{{ $task->contract }}" required="required"/>
+                                        
+                                        <select class="border--base padding--base" name="status" id="status">
+                                            <option value="1" {{ $task->status=="Done" ? "selected": ""}}>Done</option>
+                                            <option value="0" {{ $task->status=="Waiting" ? "selected" : ""}}>Waiting</option>
+                                        </select>
+                                    </div>
+                                    <div class="clear-fix"></div>
+                                </div>
+                                <div class="add-customer--left__item">
+                                    <div class="text"><span>Contract :</span></div>
+                                    <div class="content">
+                                        <input class="border--base padding--base" type="number" name="contract" value="{{ $task->contract }}" required="required"/>
                                         @if($errors->has('status'))
                                             <p class="text-danger">{{ $errors->first('status') }}</p>
                                         @endif

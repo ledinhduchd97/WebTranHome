@@ -143,7 +143,7 @@
                             <td>{{$house->address}}</td>
                             <td>{{$house->site_area}}</td>
                             <td>{{$house->area_gross_floor}}</td>
-                            <td>$ {{$house->price}}</td>
+                            <td>{{ $house->unit }} {{ $house->price }}</td>
                             <td>{{$house->number_bedroom}}</td>
                             <td>{{$house->number_bathroom}}</td>
                             <td>{{$house->created_at}}</td>

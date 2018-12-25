@@ -297,7 +297,19 @@
     <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/classic/ckeditor.js"></script>
     <script>
-        
+        let theEditor;
+        ClassicEditor
+          .create(document.querySelector('#new-note'))
+          .then(editor => {
+            theEditor = editor;
+
+          })
+          .catch(error => {
+            console.error(error);
+          });
+        function getDataFromTheEditor() {
+          return theEditor.getData();
+        }
         $.ajaxSetup({
                 headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -372,7 +384,8 @@
         });
         // ajax thêm note 
         $(".add-note").click(function(event) {
-            var data = $("#new-note").val();
+            // var data = $("#new-note").val();
+            var data = getDataFromTheEditor();
             var param = [];
             var url = window.location.href;
             param = url.split("/");

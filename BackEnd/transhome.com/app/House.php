@@ -111,6 +111,14 @@ class House extends Model
 
         }
     }
+    public function get_value_unit($value)
+    {
+        switch ($value) {
+            case "€": return 0; break;
+            case "$": return 1; break;
+            case "£": return 2; break;
+        }
+    }
 
 
 }

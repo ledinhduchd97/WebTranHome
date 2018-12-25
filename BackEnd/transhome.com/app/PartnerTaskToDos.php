@@ -33,8 +33,8 @@ class PartnerTaskToDos extends Model
 
     public function getStatusAttribute($value){
         switch($value){
-            case 0: return "Done";
-            case 1: return "Waiting";
+            case 1: return "Done";
+            case 0: return "Waiting";
         }
     }
 }

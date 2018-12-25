@@ -4,7 +4,13 @@
       <div class="footer__wrap">
         <div class="row">
           <div class="col-md-4 col-sm-6">
-            <div class="footer__col--title"><a href="{{route('get.index')}}"><img src="{{asset($setup->logo_footer)}}" alt="logo"/></a></div>
+            <div class="footer__col--title"><a href="{{route('get.index')}}">
+              @if($setup->logo_footer == "")
+              <img src="https://via.placeholder.com/150" alt="logo"/>
+              @else
+              <img src="{{asset($setup->logo_footer)}}" alt="logo"/>
+              @endif
+            </a></div>
             <div class="footer__col--text">
               <p class="line-clame__base2">{{$setup->description}}</p>
             </div>

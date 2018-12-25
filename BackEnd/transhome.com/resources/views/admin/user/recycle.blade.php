@@ -88,7 +88,7 @@
               <th>Username</th>
               <th>Name</th>
               <th>Phone</th>
-              <th>Date time</th>
+              <th>Birthday</th>
               <th>Email</th>
               <th>Position</th>
               <th>Status</th>

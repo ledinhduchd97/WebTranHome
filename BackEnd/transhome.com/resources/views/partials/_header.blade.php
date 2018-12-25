@@ -23,7 +23,13 @@
     <div class="container">
       <div class="row">
         <div class="col-3">
-          <div class="logo"><a href="{{route('get.index')}}"><img src="{{asset($setup->logo_header)}}" alt="logo"/></a></div>
+          <div class="logo"><a href="{{route('get.index')}}">
+            @if($setup->logo_header == "")
+            <img src="https://via.placeholder.com/150" alt="logo"/>
+            @else
+            <img src="{{asset($setup->logo_header)}}" alt="logo"/>
+            @endif
+          </a></div>
         </div>
         <div class="col-9">
           <div class="main__menu">
@@ -31,7 +37,7 @@
               <ul class="list-inline">
                 <li><a href="{{route('get.index')}}"><span>home</span></a></li>
                 <li><a href="#feature"><span>Properties</span></a></li>
-                <li><a href="http://127.0.0.1:8000/freecash"><span>Sell My House</span></a></li>
+                <li><a href="{{route('get.freecash')}}"><span>Sell My House</span></a></li>
                 <li><a href="#about-us"><span>About Us</span></a></li>
                 <li class="padding-none"><a href="#partner"><span>Partner</span></a></li>
               </ul>

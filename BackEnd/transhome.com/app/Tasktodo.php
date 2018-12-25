@@ -46,10 +46,17 @@ class Tasktodo extends Model
         return date("m-d-Y H:i", strtotime($value));
     }
 
-    public function scopeWithTitleOrName($query, $keyword) {
-        return Tasktodo::onlyTrashed()->where(function($query) use ($keyword) {
-            $query->orWhere('title', 'like', '%' . $keyword . '%');
-            $query->orWhere('to_do_type', 'like', '%' . $keyword . '%');
+    public function scopeWithTitleOrName($query, $keyword,$flag = true) {
+        if($flag)
+        {
+            return Tasktodo::onlyTrashed()->where(function($query) use ($keyword) {
+                $query->orWhere('title', 'like', '%'.$keyword.'%');
+                $query->orWhere('to_do_type', 'like', '%'.$keyword.'%');
+            });
+        }
+        return Tasktodo::where(function($query) use ($keyword) {
+            $query->orWhere('title', 'like', '%'.$keyword.'%');
+            $query->orWhere('to_do_type', 'like', '%'.$keyword.'%');
         });
     }
 

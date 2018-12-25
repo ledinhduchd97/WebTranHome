@@ -22,21 +22,20 @@ class TasktodoController extends Controller
         $date_from = $request->date_from;
         $date_to = $request->date_to;
         if($request->keyword) {
-            $tasks = $tasks->withTitleOrName($request->keyword);
+            $tasks = $tasks->withTitleOrName($key,false);
         }
-
+        // dd($tasks);
         if($request->status) {
-            $tasks = $tasks->withStatus($request->status);
+            $tasks = $tasks->withStatus($sta);
         }
 
-        if($request->date_from && $request->date_to) {
-            $from = date("Y-m-d", strtotime($request->date_from));
-            $to = date("Y-m-d", strtotime($request->date_to));
-            // $tasks = $tasks->whereBetween('start_task', array($from, $to));
+        if($date_from && $date_to) {
+            $from = date("Y-m-d", strtotime($date_from));
+            $to = date("Y-m-d", strtotime($date_to));
             $tasks = $tasks->withStartAndDeadline($from, $to);
         }
-
         $tasks = $tasks->orderBy('start_task','asc')->paginate(10);
+        
         $tasks->withPath("?keyword=$key&status=$sta&date_from=$date_from&date_to=$date_to");
         return view('admin.task_to_do.index', compact('tasks', 'recycle', 'view'));
     }

@@ -36,15 +36,7 @@
                         <p class="name-room">Lot</p></span></div>
                         <!--End update html 24/10-->
                     <p class="sale">For Sale</p>
-                    <p class="price">@if($house->unit == 0 )
-                                                    €
-                                                @endif 
-                                                @if($house->unit == 1)
-                                                    $
-                                                @endif
-                                                @if($house->unit == 2)
-                                                    £  
-                                                @endif{{$house->price}}</p>
+                    <p class="price">{{ $house->unit }} {{ $house->price }}</p>
                     <a class="btn-view link-base" href="{{route('get.detail',['id'=>$house->id])}}"><span>view property &gt;</span></a>
                   </div>
                 </div>
@@ -89,17 +81,9 @@
                     <div class="feature__infor">
                       <p class="feature__infor--time highlight line-clame__base">{{$house->note}}</p>
                       <h3 class="feature__infor--title">{{$house->name}}</h3>
-                      <p class="feature__infor--des">{{$house->description}}</p>
+                      <p class="feature__infor--des">{!!$house->description!!}</p>
                       <p class="sale">For  Sale</p>
-                      <p class="price">@if($house->unit == 0 )
-                                                    €
-                                                @endif 
-                                                @if($house->unit == 1)
-                                                    $
-                                                @endif
-                                                @if($house->unit == 2)
-                                                    £  
-                                                @endif {{$house->price}}</p><a class="btn-view link-base" href="{{route('get.detail',['id'=>$house->id])}}"><span>View Property &gt;</span></a>
+                      <p class="price">{{ $house->unit }} {{ $house->price }}</p><a class="btn-view link-base" href="{{route('get.detail',['id'=>$house->id])}}"><span>View Property &gt;</span></a>
                     </div>
                   </div>
                 </div>        
@@ -144,17 +128,9 @@
                     <div class="feature__infor">
                       <p class="feature__infor--time highlight line-clame__base">{{$house->note}}</p>
                       <h3 class="feature__infor--title">{{$house->name}}</h3>
-                      <p class="feature__infor--des">{{$house->description}}</p>
+                      <p class="feature__infor--des">{!!$house->description!!}</p>
                       <p class="sale">For  Sale</p>
-                      <p class="price">@if($house->unit == 0 )
-                                                    €
-                                                @endif 
-                                                @if($house->unit == 1)
-                                                    $
-                                                @endif
-                                                @if($house->unit == 2)
-                                                    £  
-                                                @endif {{$house->price}}</p><a class="btn-view link-base" href="{{route('get.detail',['id'=>$house->id])}}"><span>View Property &gt;</span></a>
+                      <p class="price">{{ $house->unit }} {{ $house->price }}</p><a class="btn-view link-base" href="{{route('get.detail',['id'=>$house->id])}}"><span>View Property &gt;</span></a>
                     </div>
                   </div>
                 </div>
@@ -240,15 +216,7 @@
                               <p class="name-room">bathrooms</p></span><span>
                               <p class="number">{{$house->area_gross_floor}} Sqft</p>
                               <p class="name-room">living rooms</p></span></div>
-                          <p class="price">@if($house->unit == 0 )
-                                                    €
-                                                @endif 
-                                                @if($house->unit == 1)
-                                                    $
-                                                @endif
-                                                @if($house->unit == 2)
-                                                    £  
-                                                @endif {{$house->price}}</p><a class="btn btn-primary btn-play btn-base" href=""><span>play</span></a>
+                          <p class="price">{{ $house->unit }} {{ $house->price }}</p><a class="btn btn-primary btn-play btn-base" href=""><span>play</span></a>
                         </div>
                       </div>
                     </div>
@@ -274,15 +242,7 @@
                               <p class="name-room">bathrooms</p></span><span>
                               <p class="number">{{$house->area_gross_floor}} sq</p>
                               <p class="name-room">living rooms</p></span></div>
-                          <p class="price">@if($house->unit == 0 )
-                                                    €
-                                                @endif 
-                                                @if($house->unit == 1)
-                                                    $
-                                                @endif
-                                                @if($house->unit == 2)
-                                                    £  
-                                                @endif {{$house->price}}</p><a class="btn btn-primary btn-play btn-base" href=""><span>play</span></a>
+                          <p class="price">{{ $house->unit }} {{ $house->price }}</p><a class="btn btn-primary btn-play btn-base" href=""><span>play</span></a>
                         </div>
                       </div>
                     </div>

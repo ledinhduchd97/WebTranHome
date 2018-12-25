@@ -101,6 +101,7 @@
                     <th>To do Type</th>
                     <th>Time</th>
                     <th>Ranking</th>
+                    <th>Status</th>
                     <th>Options</th>
                 </tr>
                 @if(isset($tasks))
