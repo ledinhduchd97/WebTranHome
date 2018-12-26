@@ -47,18 +47,18 @@
                                 <input class="tk-position padding--base border--base" type="text" name="keyword"
                                        placeholder="Search keywords" value="{{ request()->keyword }}">
                             </div>
-                            <div class="col2 fleft">
+                            <!-- <div class="col2 fleft">
                                 <select class="tk-status padding--base border--base" id="tk-status" name="status">
                                     <option value="">--- Status ---</option>
                                     <option value="0">Hidden</option>
                                     <option value="1">Display</option>
                                     <option value="2">Not Actived</option>
                                 </select>
-                            </div>
+                            </div> -->
                             <div class="col-25 fleft">
                                 <div class="tk-top__from-date date--wrap"><span>Start day</span>
                                     <div class="fromDate date--wrap2 myDate"><i class="far fa-calendar-alt"></i>
-                                        <input class="myDatePicker padding--base border--base" type="date"
+                                        <input class="padding--base border--base" type="date"
                                                name="date_from" style="max-width: 95%;" autocomplete="off" data-date-format="mm-dd-yyyy" value="{{ request()->date_from }}"/>
                                     </div>
                                 </div>
@@ -66,7 +66,7 @@
                             <div class="col-25 fleft">
                                 <div class="tk-top__to-date date--wrap"><span>Finish day</span>
                                     <div class="toDate date--wrap2 myDate"><i class="far fa-calendar-alt"></i>
-                                        <input class="myDatePicker padding--base border--base" type="date"
+                                        <input class="padding--base border--base" type="date"
                                                name="date_to" style="max-width: 95%;" autocomplete="off" data-date-format="mm-dd-yyyy" value="{{ request()->date_to }}"/>
                                     </div>
                                 </div>
@@ -106,7 +106,6 @@
                     <th>Address</th>
                     <th>Create Date</th>
                     <th>Client Type</th>
-                    <th>Status</th>
                     <th>Note</th>
                     <th>Options</th>
                 </tr>
@@ -138,9 +137,6 @@
                             </td>
                             <td>
                                 <p>{{ $customer->type }}</p>
-                            </td>
-                            <td>
-                                <p>{{ $customer->status }}</p>
                             </td>
                             <td>
                                 <div class="table-icon"><i class="far fa-sticky-note note_popup" data-toggle="modal" data-target="#exampleNote" id-customer="{{$customer->id}}"></i>

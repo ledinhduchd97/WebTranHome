@@ -38,7 +38,7 @@
                                 <div class="add-customer--left__item">
                                     <div class="text"><span>First name :</span></div>
                                     <div class="content">
-                                        <input class="border--base padding--base" type="text" name="first_name" required="required" maxlength="64" pattern="^[a-zA-Z]+$"/>
+                                        <input class="border--base padding--base" type="text" name="first_name" required="required" maxlength="64" pattern="^[a-zA-Z ]+$"/>
                                         @if($errors->has('first_name'))
                                             <p class="text-danger">{{ $errors->first('first_name') }}</p>
                                         @endif
@@ -48,7 +48,7 @@
                                 <div class="add-customer--left__item">
                                     <div class="text"><span>Last name :</span></div>
                                     <div class="content">
-                                        <input class="border--base padding--base" type="text" name="last_name" required="required" maxlength="64" pattern="^[a-zA-Z]+$"/>
+                                        <input class="border--base padding--base" type="text" name="last_name" required="required" maxlength="64" pattern="^[a-zA-Z ]+$"/>
                                         @if($errors->has('last_name'))
                                             <p class="text-danger">{{ $errors->first('last_name') }}</p>
                                         @endif
@@ -68,7 +68,7 @@
                                 <div class="add-customer--left__item">
                                     <div class="text"><span>Email :</span></div>
                                     <div class="content">
-                                        <input class="border--base padding--base" type="email" name="email" required="required" pattern="^[a-zA-Z]{6,32}@gmail.com$"/>
+                                        <input class="border--base padding--base" type="email" name="email" required="required" pattern="^[a-zA-Z0-9.]{6,32}@gmail.com$"/>
                                         @if($errors->has('email'))
                                             <p class="text-danger">{{ $errors->first('email') }}</p>
                                         @endif
@@ -88,7 +88,7 @@
                                 <div class="add-customer--left__item">
                                     <div class="text"><span>Address :</span></div>
                                     <div class="content">
-                                        <input class="border--base padding--base" type="text" name="address" required="required" maxlength="250" pattern="[a-zA-Z0-9]\-\/"/>
+                                        <input class="border--base padding--base" type="text" name="address" required="required" maxlength="250" pattern="[a-zA-Z0-9 ]\-\/"/>
                                         @if($errors->has('address'))
                                             <p class="text-danger">{{ $errors->first('address') }}</p>
                                         @endif

@@ -97,12 +97,24 @@
                 <div class="dropdown for-notification">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-bell"></i>
-                    <span class="count bg-danger">{{$data['noti']}}</span>
+                    <span class="count bg-danger">{{ $data['noti'] + $data['noti_cus'] + $data['noti_par']}}</span>
                   </button>
                   <div class="dropdown-menu" aria-labelledby="notification">
-                    <p class="red">You have {{$data['noti']}} Notification</p>
+                    <p class="red">You have {{ $data['noti'] + $data['noti_cus'] + $data['noti_par']}} Notification</p>
                     @foreach($data['tasks'] as $task)
                     <a class="dropdown-item media bg-flat-color-5" href="{{route('admin.tasks.show',['task'=>$task->id])}}">
+                        <i class="fa fa-warning"></i>
+                        <p><b>{{$task->title}}</b><span> - Time : {{$task->deadline}}</span></p>
+                    </a>
+                    @endforeach
+                    @foreach($data['tasks_cus'] as $task)
+                    <a class="dropdown-item media bg-flat-color-4" href="{{route('admin.customerTasks.show',['customerTask'=>$task->id])}}">
+                        <i class="fa fa-warning"></i>
+                        <p><b>{{$task->title}}</b><span> - Time : {{$task->deadline}}</span></p>
+                    </a>
+                    @endforeach
+                    @foreach($data['tasks_par'] as $task)
+                    <a class="dropdown-item media bg-flat-color-1" href="{{route('admin.partnerTasks.show',['partnerTask' => $task->id])}}">
                         <i class="fa fa-warning"></i>
                         <p><b>{{$task->title}}</b><span> - Time : {{$task->deadline}}</span></p>
                     </a>
@@ -193,13 +205,13 @@
     </div>
 
     <!-- Modal -->
-<div id="changePass" class="modal fade" role="dialog">
+<div id="changePass" class="modal" role="dialog">
     <div class="modal-dialog">
   
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" style="margin: 0; padding: 0;">&times;</button>
+          <!-- <button type="button" class="close" data-dismiss="modal" style="margin: 0; padding: 0;">&times;</button> -->
           <h4 class="modal-title">Change password</h4>
         </div>
         <form id="change-pass-form" action="" method="POST">
@@ -220,7 +232,7 @@
             </div>
             <div class="modal-footer">
                 <div class="btn-group">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" style="margin-right: 15px;">Submit</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>

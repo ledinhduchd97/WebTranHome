@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('title','Detail')
 @section('css')
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
     <link rel="stylesheet" type="text/css" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
@@ -230,6 +231,7 @@
                                                     <th>Ranking</th>
                                                     <!-- <th>Status</th> -->
                                                     <th>Note</th>
+                                                    <th>Status</th>
                                                     <th>Options</th>
                                                 </tr>
                                                 @foreach($tasks as $task)
@@ -254,6 +256,9 @@
                                                     </td>
                                                     <td>
                                                         <p>{{ $task->note}}</p>
+                                                    </td>
+                                                    <td>
+                                                        <p>{{ $task->status}}</p>
                                                     </td>
                                                     <td>
                                                         <div class="table-icon">

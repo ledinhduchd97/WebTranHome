@@ -8,6 +8,7 @@
 <meta name="keywords" content="coding, html, css"/>
 <meta name="author" content="someone"/>
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
 <link rel="apple-touch-icon" href="{{asset('frontend-admin/apple-icon.png')}}">
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"/>

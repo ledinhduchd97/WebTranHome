@@ -77,12 +77,27 @@ class Tasktodo extends Model
             case 0: return 'Waiting';
         }
     }
+    public function getValueStatus($value)
+    {
+        switch($value) {
+            case 'Done': return 1;
+            case 'Waiting': return 0;
+        }
+    }
 
     public function getRankingAttribute($value) {
         switch($value) {
             case 0: return "Low";
             case 1: return "High";
             case 2: return "Normal";
+        }
+    }
+    public function getValueRanking($value)
+    {
+        switch($value) {
+            case "Low": return 0;
+            case "High": return 1;
+            case "Normal": return 2; 
         }
     }
     public function customer()

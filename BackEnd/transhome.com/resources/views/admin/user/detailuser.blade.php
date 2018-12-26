@@ -30,7 +30,7 @@
             </div>
             <div class="view-detail__content">
                 <div class="view-detail__content--title text-center">
-                    <h3>View detail</h3>
+                    <h3>Overview</h3>
                 </div>
                 <form action="">
                     <div class="view-detail__content--row">

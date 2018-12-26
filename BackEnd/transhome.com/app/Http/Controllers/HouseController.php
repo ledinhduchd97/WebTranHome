@@ -47,7 +47,7 @@ class HouseController extends Controller
         {
             $houses = $houses->SearchPrice($price);
         }
-        if( $status != 0 )
+        if( $status != NULL )
         {
             $houses = $houses->SearchStatus($status);
         }

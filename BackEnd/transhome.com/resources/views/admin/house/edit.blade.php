@@ -5,7 +5,7 @@
         <div class="house-edit content-wrap content-wrap2" id="house-edit">
             <div class="edit-house edit-house-wrap">
                 <div class="edit-house__top">
-                    <h2 class="edit-house__top--title">Edit a new house</h2>
+                    <h2 class="edit-house__top--title">Edit house</h2>
                 </div>
                 <div class="edit-house__main">
                     <div class="edit-house--left fleft">

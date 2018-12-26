@@ -17,7 +17,7 @@ class Customer extends Model
     protected $dates = ['deleted_at', 'updated_at', 'created_at', 'birthday'];
 
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'birthday', 'phone','address', 'type', 'status',
+        'first_name', 'last_name', 'email', 'birthday', 'phone','address', 'type'
     ];
 
     public function scopeByLatest($query, $sort = "desc") {

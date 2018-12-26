@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('title','Detail')
 @section('css')
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="stylesheet" type="text/css" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
@@ -170,8 +171,8 @@
                                                                 <div class="col2 fleft">
                                                                     <select class="customer-status padding--base border--base" id="customer-status" name="status">
                                                                         <option value="">--- Status ---</option>
-                                                                        <option value="0">Done</option>
-                                                                        <option value="1">Waiting</option>
+                                                                        <option value="1">Done</option>
+                                                                        <option value="0">Waiting</option>
                                                                     </select>
                                                                 </div>
                                                                 <div class="col-25 fleft">

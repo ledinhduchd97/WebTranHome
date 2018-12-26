@@ -427,13 +427,13 @@
                 </div>
             `);
             previewImage();
+            function remove_image(that) {
+                $(that).closest('.slide_page_detail').remove();
+            }
         });
         function remove_image(that) {
             $(that).closest('.slide_page_detail').remove();
         }
-        click;
-
-
-        
+        click;   
     </script>
 @endsection

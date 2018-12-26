@@ -215,7 +215,7 @@ class UserController extends Controller
     {
         if ($request->password == "" && $request->confirm == "") {
             $request->validate([
-                'fullname' => 'required|max:30|regex:/^[a-zA-Z]+$/',
+                'fullname' => 'required|max:30|regex:/^[a-zA-Z ]+$/',
                 'email' => 'required|max:50|regex:/^[\w.+\-]+@gmail\.com$/',
                 'username' => 'required|min:3|max:50|regex:/^[a-zA-Z0-9._]+$/',
                 'phone' => 'required|min:10|max:15|regex:/^[0-9 \(\)-]+$/',

@@ -24,8 +24,8 @@ class AddCustomerRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'required|regex:/^[a-zA-Z]+$/',
-            'last_name' => 'required|regex:/^[a-zA-Z]+$/',
+            'first_name' => 'required|regex:/^[a-zA-Z ]+$/',
+            'last_name' => 'required|regex:/^[a-zA-Z ]+$/',
             'birthday' => 'required',
             'email' => 'required|regex:/^[\w.+\-]+@gmail\.com$/|unique:customers',
             'phone' => 'required|regex:/^[0-9 \(\)-]+$/',

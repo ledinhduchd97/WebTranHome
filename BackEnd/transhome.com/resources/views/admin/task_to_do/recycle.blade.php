@@ -21,7 +21,7 @@
         <div class="tk-top tk-top-wrap">
             <div class="tk-top__top">
                 <div class="tk-top__top--left fleft col-50">
-                    <h2 class="tk-top__title">Tasks to do</h2><a class="add-new"
+                    <h2 class="tk-top__title">Tasks to do in Recycle Bin</h2><a class="add-new"
                                                                           href="{{route('admin.tasks.create')}}">Add new</a>
                 </div>
                 <div class="tk-top__top--right fleft col-50">
@@ -57,7 +57,7 @@
                             <div class="col-25 fleft">
                                 <div class="tk-top__from-date date--wrap"><span>Start day</span>
                                     <div class="fromDate date--wrap2 myDate"><i class="far fa-calendar-alt"></i>
-                                        <input class="myDatePicker padding--base border--base" type="text"
+                                        <input class="padding--base border--base" type="date"
                                                name="date_from" style="max-width: 95%;" autocomplete="off" data-date-format="mm-dd-yyyy" value="{{ request()->date_from }}"/>
                                     </div>
                                 </div>
@@ -65,7 +65,7 @@
                             <div class="col-25 fleft">
                                 <div class="tk-top__to-date date--wrap"><span>Finish day</span>
                                     <div class="toDate date--wrap2 myDate"><i class="far fa-calendar-alt"></i>
-                                        <input class="myDatePicker padding--base border--base" type="text"
+                                        <input class="padding--base border--base" type="date"
                                                name="date_to" style="max-width: 95%;" autocomplete="off" data-date-format="mm-dd-yyyy" value="{{ request()->date_to }}"/>
                                     </div>
                                 </div>
@@ -99,8 +99,8 @@
                     <th>Birthday</th>
                     <th>Client Type</th>
                     <th>To do Type</th>
+                    <th>Start task</th>
                     <th>Time</th>
-                    <th>Ranking</th>
                     <th>Status</th>
                     <th>Options</th>
                 </tr>
@@ -132,10 +132,10 @@
                                 <p>{{ $task->to_do_type }}</p>
                             </td>
                             <td>
-                                <p>{{ $task->deadline }}</p>
+                                <p>{{ $task->start_task }}</p>
                             </td>
                             <td>
-                                <p>{{ $task->ranking }}</p>
+                                <p>{{ $task->deadline }}</p>
                             </td>
                             <td>
                                 <p>{{ $task->status }}</p>

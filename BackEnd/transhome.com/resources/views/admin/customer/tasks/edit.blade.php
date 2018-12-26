@@ -117,7 +117,7 @@
                                     </div>
                                     <div class="clear-fix"></div>
                                 </div>
-                                <!-- <div class="add-customer--left__item">
+                                <div class="add-customer--left__item">
                                     <div class="text"><span>Status :</span></div>
                                     <div class="content">
                                         <select class="border--base padding--base" name="status" id="status">
@@ -129,7 +129,7 @@
                                         @endif
                                     </div>
                                     <div class="clear-fix"></div>
-                                </div> -->
+                                </div>
                                 <div class="add-customer--left__item text-center">
                                     <button class="btn--primary padding--base btn--submit" type="submit">Save</button>
                                     <a class="btn--primary padding--base btn--cancel" href="{{route('admin.partner.index')}}">Cancel</a>

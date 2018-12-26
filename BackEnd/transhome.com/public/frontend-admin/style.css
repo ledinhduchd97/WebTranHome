@@ -1207,7 +1207,7 @@ input {
   position: absolute;
   z-index: 99;
   padding: 3px 10px;
-  line-height: 20px;
+  line-height: 35px;
   border-right: 1px solid #ddd;
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
@@ -2120,4 +2120,8 @@ input[type="file"]{
 }
 .task_todo__content .total span{
   font-weight: 400;
+}
+.error-image p{
+  position: relative;
+  left: 32%;
 }

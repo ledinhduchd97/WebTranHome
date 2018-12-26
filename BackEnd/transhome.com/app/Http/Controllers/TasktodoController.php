@@ -28,7 +28,6 @@ class TasktodoController extends Controller
         if($request->status) {
             $tasks = $tasks->withStatus($sta);
         }
-
         if($date_from && $date_to) {
             $from = date("Y-m-d", strtotime($date_from));
             $to = date("Y-m-d", strtotime($date_to));
@@ -61,9 +60,9 @@ class TasktodoController extends Controller
     {
         $request->validate(
             [
-                'title' => 'required|max:250|regex:/^[a-zA-Z ]+$/',
+                'title' => 'required|max:250|regex:/^[a-zA-Z0-9 ]+$/',
                 'customer_id' => 'required',
-                'to_do_type' => 'required|regex:/^[a-zA-Z ]+$/',
+                'to_do_type' => 'required|regex:/^[a-zA-Z0-9 ]+$/',
                 'start_task' => 'required',
                 'deadline' => 'required',
                 'note' => 'required|max:250',
@@ -143,9 +142,9 @@ class TasktodoController extends Controller
         // dd(1);
         $request->validate(
             [
-                'title' => 'required|max:250|regex:/^[a-zA-Z ]+$/',
+                'title' => 'required|max:250|regex:/^[a-zA-Z0-9 ]+$/',
                 'customer_id' => 'required',
-                'to_do_type' => 'required|regex:/^[a-zA-Z ]+$/',
+                'to_do_type' => 'required|regex:/^[a-zA-Z0-9 ]+$/',
                 'start_task' => 'required',
                 'deadline' => 'required',
                 'note' => 'required|max:250',
@@ -192,7 +191,7 @@ class TasktodoController extends Controller
     {
         $task = Tasktodo::findOrFail($tasktodo);
         $task->delete();
-        session(['success' => 'Sucessfully delete customer']);
+        session(['success' => 'Sucessfully delete tasks to do']);
         return redirect()->route('admin.tasks.index');
     }
 

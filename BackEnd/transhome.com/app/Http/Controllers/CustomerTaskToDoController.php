@@ -91,9 +91,7 @@ class CustomerTaskToDoController extends Controller
         $task = CustomerTaskToDo::findOrFail($id);
         $rules = [
             'title' => 'required|max:250',
-            // 'age' => 'required',
             'type' => 'required',
-            // 'update' => 'required',
             'ranking' => 'required'
         ];
         $request->validate($rules);

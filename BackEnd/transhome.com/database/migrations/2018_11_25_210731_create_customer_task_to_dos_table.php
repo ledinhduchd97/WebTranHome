@@ -21,7 +21,7 @@ class CreateCustomerTaskToDosTable extends Migration
             // $table->integer("update")->nullable();
             $table->string("type");
             $table->dateTime("deadline")->nullable();
-            // $table->integer("status")->nullable();
+            $table->integer("status")->nullable();
             $table->integer("ranking")->nullable();
             $table->string("note")->nullable();
             $table->timestamps();

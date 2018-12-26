@@ -13,6 +13,7 @@ class CustomerTaskToDo extends Model
         'deadline',
         'ranking',
         'note',
+        'status',
         'created_at'
     ];
 
@@ -27,10 +28,10 @@ class CustomerTaskToDo extends Model
         }
     }
 
-    // public function getStatusAttribute($value){
-    //     switch($value){
-    //         case 0: return "Done";
-    //         case 1: return "Waiting";
-    //     }
-    // }
+    public function getStatusAttribute($value){
+        switch($value){
+            case 0: return "Done";
+            case 1: return "Waiting";
+        }
+    }
 }

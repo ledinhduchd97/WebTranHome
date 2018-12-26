@@ -159,7 +159,7 @@
                         </div>
                         <div class="clear-fix"></div>
                     </div>
-                    <!-- <div class="edit-tk__content--row">
+                    <div class="edit-tk__content--row">
                         <div class="text"><span>
                      Status (<span class="required">*</span>):</span></div>
                         <div class="content">
@@ -177,7 +177,7 @@
                             </div>
                         </div>
                         <div class="clear-fix"></div>
-                    </div> -->
+                    </div>
                     <div class="edit-tk__content--row text-center">
                         <button class="btn-submit btn--primary padding--base" type="submit" id="btn-adduser">Submit</button>
                         <a class="btn-cancel btn--primary padding--base" href="{{route('admin.partner.index')}}">Cancel</a>

@@ -43,12 +43,11 @@ class PartnerTaskToDosController extends Controller
     {
         $rules = [
             'title' => 'required|max:250',
-            'age' => 'required|number',
+            'age' => 'required|numeric',
             'type' => 'required',
-            'update' => 'required|number',
+            'update' => 'required|numeric',
             'ranking' => 'required',
-            'contract' => 'number',
-            ''
+            'contract' => 'numeric',
         ];
         $request->validate($rules);
         $this->task->create($request->all());

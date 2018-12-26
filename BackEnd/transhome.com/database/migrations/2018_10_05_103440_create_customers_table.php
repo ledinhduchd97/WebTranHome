@@ -21,7 +21,7 @@ class CreateCustomersTable extends Migration
             $table->date('birthday')->nullable();
             $table->string('phone');
             $table->string('address')->nullable();
-            $table->integer('status')->default(0)->nullable();
+            // $table->integer('status')->default(0)->nullable();
             $table->string('type')->nullable();
             // $table->string('note')->nullable();
             $table->timestamps();

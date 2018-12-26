@@ -16,7 +16,7 @@
           <div class="tasktodo-edit__top">
             <h2 class="tasktodo-edit__top--title">Edit To Do Task</h2>
             @if(session()->has('success'))
-            <div class="alert alert-success" style="margin-left: center;">
+            <div class="alert alert-success" style="text-align: center;">
                     {{ session()->has('success') ? session('success') : "" }}
                     {{ session()->forget('success') }}
             </div>
@@ -143,21 +143,9 @@
                 <div class="text"><span>Ranking :</span></div>
                 <div class="content">
                   <select class="padding--base border--base" id="tasktodo-edit--rank" name="ranking">
-                    @if($tasktodo->ranking == 0)
-                      <option value="0">Low</option>
-                      <option value="1">High</option>
-                      <option value="2">Nomal</option>
-                    @endif
-                    @if($tasktodo->ranking == 1)
-                      <option value="1">High</option>
-                      <option value="2">Nomal</option>
-                      <option value="0">Low</option>
-                    @endif
-                    @if($tasktodo->ranking == 2)
-                      <option value="2">Nomal</option>
-                      <option value="1">High</option>
-                      <option value="0">Low</option>
-                    @endif
+                      <option value="0" {{$tasktodo->getValueRanking($tasktodo->ranking) == 0?"selected":""}}>Low</option>
+                      <option value="1" {{$tasktodo->getValueRanking($tasktodo->ranking) == 1?"selected":""}}>High</option>
+                      <option value="2" {{$tasktodo->getValueRanking($tasktodo->ranking) == 2?"selected":""}}>Nomal</option>
                   </select>
                   @if(sizeof($errors) != 0)
                     @if($errors)
@@ -171,13 +159,8 @@
                 <div class="text"><span>Status :</span></div>
                 <div class="content">
                   <select class="padding--base border--base" id="tasktodo-edit--status" name="status">
-                    @if($tasktodo->status == 0)
-                      <option value="0">Waiting</option>
-                      <option value="1">Done</option>
-                    @else
-                      <option value="1">Done</option>
-                      <option value="0">Waiting</option>
-                    @endif
+                      <option value="0" {{$tasktodo->getValueStatus($tasktodo->status) == 0?"selected":""}}>Waiting</option>
+                      <option value="1" {{$tasktodo->getValueStatus($tasktodo->status) == 1?"selected":""}}>Done</option>
                   </select>
                   @if(sizeof($errors) != 0)
                     @if($errors)

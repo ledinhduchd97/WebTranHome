@@ -179,11 +179,13 @@ class PartnerController extends Controller
                             ->whereBetween('created_at', array($from, $to))
                             ->orWhereBetween('deadline', array($from, $to));
         }
-        if($request->status != 0 && $request->status != 1) {
-            $tasks = $tasks->where('partner_id', $id)
-                            ->where('status', $request->status);
+        if(isset($request->status))
+        {
+            if($request->status == 0 || $request->status == 1) {
+            $tasks = $tasks->where('partner_id', $id)->where('status', $request->status);
+            }    
         }
-
+        
         $tasks = $tasks->paginate(10);
         // dd($partner->partner_note);
         $view = count(Partner::where('status_recycle',1)->get());
