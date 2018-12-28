@@ -53,26 +53,26 @@
                     </div>
                     <div class="col-5 fleft">
                         <div class="about_us-view__right text-center">
-                            <div class="fleft col-50">
+                            <div class="parent-img fleft col-50">
                                 <div class="img position-relative">
                                     <img class="img--add image-responsive" src="{{asset($aboutus->image_avatar)}}"/>
                                     <button type="button" class="position-absolute close text-black"
                                             style="top: 10px; right: 10px;">&times;
                                     </button>
                                 </div>
-                                <label for="img-file" class="btn btn-primary btn-inputfile">Select the file</label>
-                                <input id="img-file" type="file" name="image_avatar" style="display:none;"/>
+                                <label for="img-file1" class="btn btn-primary btn-inputfile">Select the file</label>
+                                <input id="img-file1" type="file" name="image_avatar" style="display:none;"/>
                                 <label>Image Avatar</label>
                             </div>
-                            <div class="fleft col-50">
+                            <div class="parent-img fleft col-50">
                                 <div class="img position-relative">
                                     <img class="img--add image-responsive" src="{{asset($aboutus->image_signature)}}"/>
                                     <button type="button" class="position-absolute close text-black"
                                             style="top: 10px; right: 10px;">&times;
                                     </button>
                                 </div>
-                                <label for="img-file" class="btn btn-primary btn-inputfile">Select the file</label>
-                                <input id="img-file" type="file" name="image_signature" style="display:none;"/>
+                                <label for="img-file2" class="btn btn-primary btn-inputfile">Select the file</label>
+                                <input id="img-file2" type="file" name="image_signature" style="display:none;"/>
                                 <label>Image Signature</label>
                             </div>
                             <div class="clear-fix"></div>
@@ -105,9 +105,10 @@
                     var reader = new FileReader();
 
                     reader.onload = (e) => {
-                        console.log($(this).prev(".img"));
-                        $(this).prev(".img").find("img").attr('src', e.target.result);
-                        $(this).prev(".img").find(".close").show();
+                        console.log(this);
+                        console.log($(this).parent(".parent-img"));
+                        $(this).parent(".parent-img").find("img").attr('src', e.target.result);
+                        $(this).parent(".parent-img").find(".close").show();
                     }
 
                     reader.readAsDataURL(this.files[0]);
